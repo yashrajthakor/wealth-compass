@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
-import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect, useRef } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -11,10 +11,15 @@ import {
   ShieldCheck,
   TrendingUp,
   RefreshCw,
+  ChevronDown,
+  CheckCircle2,
+  Users,
+  Award,
+  BarChart3,
+  Star,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
 import { SERVICES, PRODUCTS, ARTICLES, TESTIMONIALS, JOURNEY, SITE } from "@/lib/site-data";
-import heroImg from "@/assets/hero-dashboard.jpg";
 import founderImg from "@/assets/founder.jpg";
 
 export const Route = createFileRoute("/")({
@@ -42,6 +47,7 @@ function Home() {
   return (
     <SiteLayout>
       <Hero />
+      <TrustBar />
       <WhyChoose />
       <About />
       <Journey />
@@ -55,152 +61,356 @@ function Home() {
   );
 }
 
+/* ---------- Hero Slides Data ---------- */
+const HERO_SLIDES = [
+  {
+    eyebrow: "Your Wealth, Your Future",
+    headline: ["Helping Indian families", "build", "multi-generational wealth."],
+    accent: "build",
+    sub: "Disciplined SIP planning, curated mutual funds, and comprehensive insurance — all under one expert roof in Surat.",
+    stat: { label: "Assets Under Advisory", value: "₹12 Cr+" },
+    cta: "Start Your SIP Today",
+    color: "from-brand/10 via-transparent to-brand-gold/5",
+  },
+  {
+    eyebrow: "Think Beyond Limits",
+    headline: ["Turn ₹500/month into", "your", "financial freedom."],
+    accent: "your",
+    sub: "Small, consistent investments compound into life-changing wealth. See how RSI's proven SIP strategy works for 240+ investors.",
+    stat: { label: "Average Portfolio Growth", value: "22.4% CAGR" },
+    cta: "Calculate Your Returns",
+    color: "from-brand-gold/10 via-transparent to-brand/5",
+  },
+  {
+    eyebrow: "Expert-Led Advisory",
+    headline: ["Personalized plans.", "Zero jargon.", "Real results."],
+    accent: "Real results.",
+    sub: "Every portfolio is built around your goals — retirement, children's education, home purchase, or legacy creation.",
+    stat: { label: "Goal Achievement Rate", value: "94.2%" },
+    cta: "Book Free Consultation",
+    color: "from-brand/8 via-transparent to-brand-gold/8",
+  },
+  {
+    eyebrow: "Complete Financial Protection",
+    headline: ["Grow wealth.", "Protect your", "family's future."],
+    accent: "family's future.",
+    sub: "From ELSS tax-saving funds to term insurance and health covers — a holistic approach that builds and protects simultaneously.",
+    stat: { label: "Families Protected", value: "240+" },
+    cta: "Explore Our Solutions",
+    color: "from-brand-gold/8 via-transparent to-brand/10",
+  },
+];
+
 /* ---------- Hero ---------- */
 function Hero() {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const go = (idx: number) => {
+    setDirection(idx > current ? 1 : -1);
+    setCurrent(idx);
+  };
+
+  const next = () => {
+    setDirection(1);
+    setCurrent((c) => (c + 1) % HERO_SLIDES.length);
+  };
+
+  useEffect(() => {
+    intervalRef.current = setInterval(next, 5000);
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  const slide = HERO_SLIDES[current];
+
+  const scrollToContent = () => {
+    const el = document.getElementById("trust-bar");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 -left-32 size-[500px] rounded-full bg-brand/10 blur-3xl" />
-        <div className="absolute bottom-0 -right-20 size-[600px] rounded-full bg-brand-gold/10 blur-3xl" />
+    <section className="relative min-h-[92vh] flex flex-col overflow-hidden">
+      {/* Animated background gradient */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          className={`absolute inset-0 -z-10 bg-gradient-to-br ${slide.color}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8 }}
+        />
+      </AnimatePresence>
+      <div className="absolute top-20 -left-32 size-[500px] rounded-full bg-brand/8 blur-3xl -z-10" />
+      <div className="absolute bottom-0 -right-20 size-[600px] rounded-full bg-brand-gold/8 blur-3xl -z-10" />
+
+      {/* Main content */}
+      <div className="mx-auto flex-1 grid max-w-7xl gap-12 px-6 pt-16 pb-10 lg:grid-cols-2 lg:items-center w-full">
+        {/* Left — text */}
+        <div>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current + "-text"}
+              initial={{ opacity: 0, y: direction * 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: direction * -30 }}
+              transition={{ duration: 0.55, ease: [0.19, 1, 0.22, 1] }}
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/8 px-4 py-2 text-[11px] font-mono uppercase tracking-[0.22em] text-brand">
+                <Sparkles className="size-3" /> {slide.eyebrow}
+              </div>
+
+              <h1 className="mt-7 font-display text-5xl md:text-6xl lg:text-[5rem] leading-[0.97] text-ink">
+                {slide.headline.map((line, i) =>
+                  line === slide.accent ? (
+                    <em key={i} className="text-brand not-italic font-display italic">
+                      {line}{" "}
+                    </em>
+                  ) : (
+                    <span key={i}>{line} </span>
+                  )
+                )}
+              </h1>
+
+              <p className="mt-6 max-w-xl text-lg text-ink-muted leading-relaxed">{slide.sub}</p>
+
+              {/* Stat pill */}
+              <div className="mt-7 inline-flex items-center gap-3 rounded-2xl border border-brand/15 bg-brand/5 px-5 py-3">
+                <BarChart3 className="size-5 text-brand shrink-0" />
+                <div>
+                  <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted">{slide.stat.label}</div>
+                  <div className="font-display text-2xl text-brand">{slide.stat.value}</div>
+                </div>
+              </div>
+
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-4 text-sm font-semibold text-white shadow-glass transition hover:bg-brand-deep"
+                >
+                  {slide.cta}
+                  <ArrowRight className="size-4 transition group-hover:translate-x-0.5" />
+                </Link>
+                <Link
+                  to="/who-we-are"
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-4 text-sm font-semibold text-ink hover:bg-accent"
+                >
+                  Learn About RSI
+                </Link>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Slide dots */}
+          <div className="mt-10 flex items-center gap-3">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => go(i)}
+                className={`transition-all rounded-full ${
+                  i === current
+                    ? "w-8 h-2 bg-brand"
+                    : "w-2 h-2 bg-border hover:bg-brand/40"
+                }`}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+            <span className="ml-2 font-mono text-[10px] text-ink-muted uppercase tracking-widest">
+              {String(current + 1).padStart(2, "0")} / {String(HERO_SLIDES.length).padStart(2, "0")}
+            </span>
+          </div>
+        </div>
+
+        {/* Right — rotating cards */}
+        <div className="relative flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={current + "-card"}
+              initial={{ opacity: 0, x: direction * 60, scale: 0.95 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: direction * -40, scale: 0.97 }}
+              transition={{ duration: 0.55, ease: [0.19, 1, 0.22, 1] }}
+              className="w-full max-w-sm"
+            >
+              <HeroCard index={current} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
 
-      <div className="mx-auto grid max-w-7xl gap-16 px-6 pt-20 pb-28 lg:grid-cols-2 lg:items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.19, 1, 0.22, 1] }}
+      {/* Auto-scroll cue */}
+      <div className="flex justify-center pb-8">
+        <button
+          onClick={scrollToContent}
+          className="flex flex-col items-center gap-2 text-ink-muted hover:text-brand transition group"
+          aria-label="Scroll down"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand/15 bg-brand/5 px-3 py-1.5 text-[11px] font-mono uppercase tracking-[0.22em] text-brand">
-            <Sparkles className="size-3" /> {SITE.tagline}
-          </div>
-          <h1 className="mt-8 font-display text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.95] text-ink">
-            Your partner in <em className="text-brand not-italic font-display italic">smart wealth</em> creation.
-          </h1>
-          <p className="mt-8 max-w-xl text-lg text-ink-muted leading-relaxed">
-            Helping individuals and families build financial confidence through disciplined investing,
-            SIP planning, mutual funds and insurance solutions.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-4 text-sm font-semibold text-white shadow-glass transition hover:bg-brand-deep"
-            >
-              Start Your Investment Journey
-              <ArrowRight className="size-4 transition group-hover:translate-x-0.5" />
-            </Link>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-4 text-sm font-semibold text-ink hover:bg-accent"
-            >
-              Talk To Advisor
-            </Link>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.1, delay: 0.15, ease: [0.19, 1, 0.22, 1] }}
-          className="relative"
-        >
-          <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card shadow-glass">
-            <img
-              src={heroImg}
-              alt="Wealth dashboard visualization"
-              width={1280}
-              height={1280}
-              className="aspect-square w-full object-cover"
-            />
-          </div>
-
-          <FloatingStat
-            label="Goal Achievement"
-            value="94.2%"
-            className="absolute -top-6 -left-6"
-            delay={0.4}
-          />
-          <FloatingStat
-            label="Wealth Growth"
-            value="+22.4%"
-            tone="dark"
-            className="absolute -bottom-6 -right-4"
-            delay={0.8}
-          />
-          <FloatingStat
-            label="SIP Investors"
-            value="240+"
-            className="absolute top-1/2 -right-8 hidden md:block"
-            delay={0.6}
-          />
-        </motion.div>
+          <span className="font-mono text-[9px] uppercase tracking-widest">Explore More</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
+          >
+            <ChevronDown className="size-5" />
+          </motion.div>
+        </button>
       </div>
     </section>
   );
 }
 
-function FloatingStat({
-  label,
-  value,
-  className = "",
-  tone = "light",
-  delay = 0,
-}: {
-  label: string;
-  value: string;
-  className?: string;
-  tone?: "light" | "dark";
-  delay?: number;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.8 }}
-      className={`${className} animate-float`}
-    >
-      <div
-        className={`rounded-2xl px-5 py-4 shadow-glass ${
-          tone === "dark"
-            ? "bg-brand-deep text-white"
-            : "glass-panel text-ink"
-        }`}
-      >
-        <div
-          className={`font-mono text-[10px] uppercase tracking-widest ${
-            tone === "dark" ? "text-white/60" : "text-ink-muted"
-          }`}
-        >
-          {label}
+/* Hero rotating info card */
+function HeroCard({ index }: { index: number }) {
+  const cards = [
+    /* Card 0 — SIP snapshot */
+    <div className="rounded-3xl border border-border bg-card shadow-glass p-8 space-y-6">
+      <div className="flex items-center justify-between">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">SIP Portfolio Snapshot</div>
+        <span className="text-[10px] font-mono bg-green-50 text-green-600 border border-green-200 rounded-full px-2 py-0.5">Live</span>
+      </div>
+      <div className="space-y-3">
+        {[
+          { fund: "Large Cap Fund", growth: "+18.4%", color: "bg-brand" },
+          { fund: "Flexi Cap Fund", growth: "+24.1%", color: "bg-brand-gold" },
+          { fund: "ELSS Tax Saver", growth: "+21.7%", color: "bg-brand-deep" },
+        ].map((f) => (
+          <div key={f.fund} className="flex items-center gap-3">
+            <div className={`h-2 rounded-full ${f.color}`} style={{ width: `${parseFloat(f.growth) * 3}px` }} />
+            <div className="flex-1 flex justify-between text-sm">
+              <span className="text-ink-muted">{f.fund}</span>
+              <span className="font-semibold text-green-600">{f.growth}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="pt-2 border-t border-border flex items-center justify-between">
+        <div>
+          <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted">Total Invested</div>
+          <div className="font-display text-2xl text-ink">₹18,00,000</div>
         </div>
-        <div
-          className={`font-display text-2xl ${
-            tone === "dark" ? "text-brand-gold" : "text-brand"
-          }`}
-        >
-          {value}
+        <div className="text-right">
+          <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted">Current Value</div>
+          <div className="font-display text-2xl text-brand">₹26,40,000</div>
         </div>
       </div>
-    </motion.div>
+    </div>,
+
+    /* Card 1 — SIP calculator preview */
+    <div className="rounded-3xl bg-brand-deep text-white shadow-glass p-8 space-y-5">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-brand-gold">₹5,000/month SIP · 10 years</div>
+      <div className="text-center py-4">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-white/50">Grows Into</div>
+        <div className="font-display text-6xl text-brand-gold mt-2">₹11.6L</div>
+        <div className="font-mono text-[10px] text-white/40 mt-2">At 12% annualized returns</div>
+      </div>
+      <div className="grid grid-cols-3 gap-3 pt-2 border-t border-white/10">
+        {[
+          { label: "Invested", val: "₹6L" },
+          { label: "Gain", val: "₹5.6L" },
+          { label: "Return", val: "93.4%" },
+        ].map((s) => (
+          <div key={s.label} className="text-center">
+            <div className="font-display text-xl text-white">{s.val}</div>
+            <div className="font-mono text-[8px] uppercase tracking-widest text-white/40 mt-0.5">{s.label}</div>
+          </div>
+        ))}
+      </div>
+      <Link to="/resources" className="block text-center text-[11px] font-mono uppercase tracking-widest text-brand-gold hover:text-white transition pt-1">
+        Try Full Calculator →
+      </Link>
+    </div>,
+
+    /* Card 2 — services */
+    <div className="rounded-3xl border border-border bg-card shadow-glass p-8 space-y-4">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-brand">What We Offer</div>
+      <div className="space-y-3">
+        {[
+          { icon: TrendingUp, label: "SIP & Mutual Fund Advisory", badge: "Most Popular" },
+          { icon: ShieldCheck, label: "Insurance Planning", badge: "Essential" },
+          { icon: Target, label: "Goal-Based Financial Planning", badge: "Personalized" },
+          { icon: RefreshCw, label: "Portfolio Review & Rebalancing", badge: "Quarterly" },
+        ].map((s) => (
+          <div key={s.label} className="flex items-center gap-3 p-3 rounded-xl bg-brand-bg hover:bg-brand-soft transition">
+            <s.icon className="size-4 text-brand shrink-0" />
+            <span className="text-sm text-ink flex-1">{s.label}</span>
+            <span className="text-[9px] font-mono uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-2 py-0.5 rounded-full">{s.badge}</span>
+          </div>
+        ))}
+      </div>
+    </div>,
+
+    /* Card 3 — trust stats */
+    <div className="rounded-3xl border border-border bg-card shadow-glass p-8 space-y-6">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-brand">RSI By Numbers</div>
+      <div className="grid grid-cols-2 gap-4">
+        {[
+          { icon: Users, val: "240+", label: "Happy Investors" },
+          { icon: Award, val: "8+ Yrs", label: "Advisory Experience" },
+          { icon: BarChart3, val: "94.2%", label: "Goal Achievement" },
+          { icon: Star, val: "4.9/5", label: "Client Satisfaction" },
+        ].map((s) => (
+          <div key={s.label} className="rounded-2xl bg-brand-bg p-4 text-center">
+            <s.icon className="size-5 text-brand mx-auto mb-2" />
+            <div className="font-display text-2xl text-ink">{s.val}</div>
+            <div className="font-mono text-[8px] uppercase tracking-widest text-ink-muted mt-1">{s.label}</div>
+          </div>
+        ))}
+      </div>
+      <div className="flex items-center gap-2 text-sm text-ink-muted border-t border-border pt-4">
+        <CheckCircle2 className="size-4 text-green-500 shrink-0" />
+        SEBI-registered · ARN certified mutual fund distributor
+      </div>
+    </div>,
+  ];
+
+  return cards[index] ?? cards[0];
+}
+
+/* ---------- Trust Bar ---------- */
+function TrustBar() {
+  const items = [
+    { icon: CheckCircle2, text: "SEBI Regulated" },
+    { icon: Award, text: "ARN Certified" },
+    { icon: Users, text: "240+ Investors" },
+    { icon: TrendingUp, text: "₹12 Cr+ AUM" },
+    { icon: Star, text: "4.9★ Rated" },
+    { icon: ShieldCheck, text: "Zero Hidden Fees" },
+  ];
+  return (
+    <div id="trust-bar" className="border-y border-border bg-brand-soft/40">
+      <div className="mx-auto max-w-7xl px-6 py-5">
+        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-3">
+          {items.map((it) => (
+            <div key={it.text} className="flex items-center gap-2 text-sm text-ink-muted">
+              <it.icon className="size-4 text-brand shrink-0" />
+              <span className="font-medium">{it.text}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
 /* ---------- Why Choose ---------- */
 function WhyChoose() {
   const items = [
-    { icon: Compass, title: "Personalized Guidance", desc: "Every plan starts with your story, not a template." },
-    { icon: Target, title: "Goal-Based Planning", desc: "Investments engineered around the life you're building." },
-    { icon: Eye, title: "Transparent Advisory", desc: "Honest conversations, no jargon, no hidden agendas." },
-    { icon: RefreshCw, title: "Consistent Reviews", desc: "Periodic portfolio audits and disciplined rebalancing." },
-    { icon: ShieldCheck, title: "Insurance Protection", desc: "Cover the downside so your wealth can grow upside." },
-    { icon: TrendingUp, title: "Long-Term Wealth Focus", desc: "Compounding wins over speculation, every time." },
+    { icon: Compass, title: "Personalized Guidance", desc: "Every plan begins with your story — your goals, risk tolerance, and life stage — not a one-size-fits-all template." },
+    { icon: Target, title: "Goal-Based Planning", desc: "Investments precisely engineered around the milestones you're building toward — be it a home, education, or retirement." },
+    { icon: Eye, title: "Transparent Advisory", desc: "Honest conversations, zero jargon, no hidden agendas. You always know where your money is and why." },
+    { icon: RefreshCw, title: "Consistent Reviews", desc: "Periodic portfolio audits and disciplined rebalancing ensure your strategy stays aligned with your evolving goals." },
+    { icon: ShieldCheck, title: "Complete Protection", desc: "Term, health and family-protection strategies sized precisely to your real-world responsibilities and income." },
+    { icon: TrendingUp, title: "Long-Term Wealth Focus", desc: "We champion the power of compounding over speculation — because time in the market always beats timing the market." },
   ];
   return (
     <section className="border-y border-border bg-brand-bg py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
-          eyebrow="Why Rudrans"
-          title="A calmer way to grow wealth."
-          subtitle="Six commitments that shape every relationship and every portfolio we build."
+          eyebrow="Why Choose RSI"
+          title="A calmer, smarter way to grow wealth."
+          subtitle="Six commitments that shape every client relationship and every portfolio we build."
         />
         <div className="mt-16 grid gap-px overflow-hidden rounded-3xl bg-border md:grid-cols-3">
           {items.map((it, i) => (
@@ -248,7 +458,7 @@ function About() {
             </div>
             <div className="absolute -bottom-6 -right-6 glass-panel rounded-2xl px-6 py-4 shadow-glass">
               <div className="font-display text-xl text-brand-deep">Dharmitsinh Solanki</div>
-              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">Founder · RSI</div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">Founder · RSI · Surat</div>
             </div>
           </div>
         </motion.div>
@@ -262,17 +472,35 @@ function About() {
         >
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">About Rudrans</div>
           <h2 className="mt-5 font-display text-5xl md:text-6xl leading-[1] text-ink max-w-xl">
-            Building wealth through <em className="italic text-brand">discipline</em> and vision.
+            Cultivating growth, <em className="italic text-brand">creating prosperity.</em>
           </h2>
           <div className="mt-8 space-y-5 text-base text-ink-muted leading-relaxed">
             <p>
-              At Rudrans Systematic Investment, we believe successful investing is built on consistency,
-              informed decisions and long-term planning.
+              At Rudrans Systematic Investment, we believe that every Indian family deserves access to professional,
+              unbiased financial guidance. Our mission is simple: help you build wealth systematically,
+              protect what you've built, and achieve the life you've envisioned.
             </p>
             <p>
-              We work closely with individuals and families to design financial strategies that align with
-              their goals, helping them create wealth, manage risk and achieve greater financial confidence.
+              With over 8 years of experience and 240+ satisfied investor families across Surat and Gujarat,
+              we specialize in goal-based financial planning, mutual fund distribution, SIP advisory,
+              and comprehensive insurance solutions — all tailored to your unique financial journey.
             </p>
+            <p>
+              We earn standard AMC distributor commissions, so you pay zero advisory fees. Our success is
+              measured by yours.
+            </p>
+          </div>
+          <div className="mt-8 grid grid-cols-3 gap-4">
+            {[
+              { val: "240+", label: "Investor Families" },
+              { val: "8+", label: "Years Experience" },
+              { val: "₹12Cr+", label: "Assets Managed" },
+            ].map((s) => (
+              <div key={s.label} className="rounded-2xl bg-brand-bg p-4 text-center border border-border">
+                <div className="font-display text-3xl text-brand">{s.val}</div>
+                <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted mt-1">{s.label}</div>
+              </div>
+            ))}
           </div>
           <Link
             to="/who-we-are"
@@ -330,9 +558,9 @@ function ServicesSection() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <SectionHeading
-            eyebrow="What we do"
-            title="End-to-end advisory."
-            subtitle="From the first SIP to a fully orchestrated wealth plan."
+            eyebrow="What We Do"
+            title="End-to-end financial advisory."
+            subtitle="From your first SIP to a fully orchestrated, multi-generational wealth plan."
           />
           <Link
             to="/services"
@@ -368,9 +596,9 @@ function ProductsSection() {
     <section className="border-y border-border bg-brand-bg py-28">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
-          eyebrow="Product universe"
+          eyebrow="Product Universe"
           title="A curated set of instruments."
-          subtitle="Each product fits a role — growth, protection, tax efficiency or income."
+          subtitle="Each product plays a specific role — growth, protection, tax efficiency or steady income."
         />
         <div className="mt-14 grid gap-4 md:grid-cols-12">
           {PRODUCTS.slice(0, 7).map((p, i) => {
@@ -394,6 +622,16 @@ function ProductsSection() {
                 <p className={`mt-3 text-sm leading-relaxed ${dark ? "text-white/70" : "text-ink-muted"}`}>
                   {p.overview}
                 </p>
+                {p.benefits && (
+                  <ul className={`mt-4 space-y-1 ${dark ? "text-white/60" : "text-ink-muted"}`}>
+                    {p.benefits.map((b) => (
+                      <li key={b} className="flex items-center gap-2 text-xs">
+                        <CheckCircle2 className={`size-3 shrink-0 ${dark ? "text-brand-gold" : "text-brand"}`} />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </motion.div>
             );
           })}
@@ -416,26 +654,31 @@ function Calculator() {
   const months = years * 12;
   const monthlyRate = rate / 12;
   const fv = monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+  const invested = monthly * months;
+  const gains = fv - invested;
   const formatted = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(Math.round(fv));
+  const investedFmt = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(Math.round(invested));
+  const gainsFmt = new Intl.NumberFormat("en-IN", { maximumFractionDigits: 0 }).format(Math.round(gains));
 
   return (
     <section className="py-28">
       <div className="mx-auto max-w-6xl px-6">
         <div className="overflow-hidden rounded-[2.5rem] bg-brand-deep p-10 md:p-16 text-white relative">
           <div className="absolute -top-20 -right-20 size-64 rounded-full bg-brand-gold/10 blur-3xl" />
+          <div className="absolute -bottom-20 -left-20 size-64 rounded-full bg-brand/20 blur-3xl" />
           <div className="relative grid gap-12 lg:grid-cols-2">
             <div>
               <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand-gold">
-                Mini SIP Calculator
+                SIP Wealth Calculator
               </div>
               <h2 className="mt-5 font-display text-5xl leading-[1]">
-                See your future <em className="italic text-brand-gold">stack up</em>.
+                See your money <em className="italic text-brand-gold">multiply.</em>
               </h2>
               <p className="mt-5 text-white/60 max-w-md">
-                Small, consistent contributions compound into substantial wealth. Try it.
+                Small, consistent contributions compound into life-changing wealth. Adjust the sliders and watch your future grow.
               </p>
               <div className="mt-10 space-y-7">
-                <Slider
+                <SliderInput
                   label="Monthly Investment"
                   value={`₹ ${monthly.toLocaleString("en-IN")}`}
                   min={500}
@@ -444,7 +687,7 @@ function Calculator() {
                   v={monthly}
                   onChange={setMonthly}
                 />
-                <Slider
+                <SliderInput
                   label="Time Horizon"
                   value={`${years} Years`}
                   min={1}
@@ -455,21 +698,33 @@ function Calculator() {
                 />
               </div>
             </div>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center flex flex-col justify-center">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-white/50">
-                Estimated Future Value
+            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 flex flex-col justify-center space-y-6">
+              <div className="text-center">
+                <div className="font-mono text-[10px] uppercase tracking-widest text-white/50">
+                  Estimated Future Value
+                </div>
+                <div className="mt-3 font-display text-6xl md:text-7xl text-brand-gold">
+                  ₹ {formatted}
+                </div>
               </div>
-              <div className="mt-3 font-display text-6xl md:text-7xl text-brand-gold">
-                ₹ {formatted}
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                <div className="text-center">
+                  <div className="font-mono text-[9px] uppercase tracking-widest text-white/40">Total Invested</div>
+                  <div className="font-display text-2xl text-white mt-1">₹ {investedFmt}</div>
+                </div>
+                <div className="text-center">
+                  <div className="font-mono text-[9px] uppercase tracking-widest text-white/40">Total Gains</div>
+                  <div className="font-display text-2xl text-brand-gold mt-1">₹ {gainsFmt}</div>
+                </div>
               </div>
-              <p className="mt-6 text-[10px] font-mono uppercase tracking-widest text-white/40">
-                Assuming 12% annualized returns
+              <p className="text-center text-[10px] font-mono uppercase tracking-widest text-white/30">
+                Assuming 12% annualized returns · Not a guaranteed return
               </p>
               <Link
                 to="/resources"
-                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-deep hover:bg-white transition"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gold px-6 py-3 text-sm font-semibold text-brand-deep hover:bg-white transition"
               >
-                Full Calculators <ArrowRight className="size-4" />
+                Advanced Calculators <ArrowRight className="size-4" />
               </Link>
             </div>
           </div>
@@ -479,7 +734,7 @@ function Calculator() {
   );
 }
 
-function Slider({
+function SliderInput({
   label, value, min, max, step, v, onChange,
 }: {
   label: string; value: string; min: number; max: number; step: number; v: number;
@@ -513,7 +768,7 @@ function Knowledge() {
           <SectionHeading
             eyebrow="Knowledge Center"
             title="Investor education."
-            subtitle="Clear, jargon-free perspectives on building wealth that lasts."
+            subtitle="Clear, jargon-free perspectives on building wealth that lasts. Because informed investors make better decisions."
           />
           <Link to="/resources" className="text-sm font-semibold text-brand hover:underline underline-offset-4">
             All articles →
@@ -556,7 +811,7 @@ function Testimonials() {
         <SectionHeading
           eyebrow="Investor Stories"
           title="Trust, earned over years."
-          subtitle="Real words from families and professionals partnering with RSI."
+          subtitle="Real words from families and professionals partnering with RSI across Surat and Gujarat."
         />
       </div>
       <div className="mt-16 relative">
@@ -572,6 +827,11 @@ function Testimonials() {
               key={i}
               className="w-[380px] shrink-0 rounded-3xl border border-border bg-card p-8 shadow-soft"
             >
+              <div className="flex gap-1 mb-3">
+                {[...Array(5)].map((_, s) => (
+                  <Star key={s} className="size-3 fill-brand-gold text-brand-gold" />
+                ))}
+              </div>
               <div className="font-display text-4xl text-brand leading-none">"</div>
               <p className="mt-3 text-base leading-relaxed text-ink">{t.quote}</p>
               <div className="mt-6 pt-5 border-t border-border">
@@ -597,19 +857,28 @@ function FinalCTA() {
           <div className="absolute -top-32 -left-32 size-80 bg-brand/10 rounded-full blur-3xl" />
           <div className="absolute -bottom-32 -right-32 size-80 bg-brand-gold/10 rounded-full blur-3xl" />
           <div className="relative">
+            <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand mb-6">Start Today</div>
             <h2 className="font-display text-5xl md:text-6xl leading-[1] text-ink">
               Ready to build your <em className="italic text-brand">financial future</em>?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-ink-muted">
-              Take the first step toward your goals with expert guidance and a structured investment plan
-              tailored to your life.
+              Take the first step toward your goals with expert, zero-fee guidance and a structured
+              investment plan tailored to your life — from Surat's trusted wealth partner.
             </p>
-            <Link
-              to="/contact"
-              className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white shadow-glass hover:bg-brand-deep transition"
-            >
-              Book a Consultation <ArrowRight className="size-4" />
-            </Link>
+            <div className="mt-10 flex flex-wrap gap-4 justify-center">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white shadow-glass hover:bg-brand-deep transition"
+              >
+                Book a Free Consultation <ArrowRight className="size-4" />
+              </Link>
+              <Link
+                to="/resources"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-8 py-4 text-sm font-semibold text-ink hover:bg-accent transition"
+              >
+                Explore Calculators
+              </Link>
+            </div>
           </div>
         </div>
       </div>

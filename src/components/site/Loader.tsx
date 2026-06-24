@@ -1,9 +1,15 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 
+const SESSION_KEY = "rsi_visited";
+
 export function Loader() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+
   useEffect(() => {
+    if (sessionStorage.getItem(SESSION_KEY)) return;
+    sessionStorage.setItem(SESSION_KEY, "1");
+    setShow(true);
     const t = setTimeout(() => setShow(false), 2200);
     return () => clearTimeout(t);
   }, []);
@@ -12,8 +18,8 @@ export function Loader() {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 z-[100] grid place-items-center bg-background"
-          exit={{ opacity: 0, transition: { duration: 0.6 } }}
+          className="fixed inset-0 z-[200] grid place-items-center bg-background"
+          exit={{ opacity: 0, transition: { duration: 0.5 } }}
         >
           <div className="relative flex flex-col items-center">
             <div className="relative h-24 w-24">

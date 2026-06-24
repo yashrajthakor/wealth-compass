@@ -15,7 +15,7 @@ export function Header() {
           <Logo />
         </Link>
         <nav className="hidden items-center gap-9 text-sm font-medium md:flex">
-          {NAV.slice(1).map((n) => {
+          {NAV.map((n) => {
             const active = pathname === n.to;
             return (
               <Link
