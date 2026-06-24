@@ -67,37 +67,33 @@ const HERO_SLIDES = [
     eyebrow: "Your Wealth, Your Future",
     headline: ["Helping Indian families", "build", "multi-generational wealth."],
     accent: "build",
-    sub: "Disciplined SIP planning, curated mutual funds, and comprehensive insurance — all under one expert roof in Surat.",
-    stat: { label: "Assets Under Advisory", value: "₹12 Cr+" },
+    sub: "Disciplined SIP planning, curated mutual funds, and comprehensive insurance — all under one trusted roof in Surat.",
     cta: "Start Your SIP Today",
-    color: "from-brand/10 via-transparent to-brand-gold/5",
+    bg: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80",
   },
   {
     eyebrow: "Think Beyond Limits",
     headline: ["Turn ₹500/month into", "your", "financial freedom."],
     accent: "your",
-    sub: "Small, consistent investments compound into life-changing wealth. See how RSI's proven SIP strategy works for 240+ investors.",
-    stat: { label: "Average Portfolio Growth", value: "22.4% CAGR" },
+    sub: "Small, consistent investments compound into life-changing wealth over time. Rupee-cost averaging, expert fund selection and goal-linked planning — all working together for you.",
     cta: "Calculate Your Returns",
-    color: "from-brand-gold/10 via-transparent to-brand/5",
+    bg: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1600&q=80",
   },
   {
     eyebrow: "Expert-Led Advisory",
     headline: ["Personalized plans.", "Zero jargon.", "Real results."],
     accent: "Real results.",
-    sub: "Every portfolio is built around your goals — retirement, children's education, home purchase, or legacy creation.",
-    stat: { label: "Goal Achievement Rate", value: "94.2%" },
+    sub: "Every portfolio is built around your goals — retirement, children's education, home purchase, or legacy creation. We listen first, then plan.",
     cta: "Book Free Consultation",
-    color: "from-brand/8 via-transparent to-brand-gold/8",
+    bg: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1600&q=80",
   },
   {
     eyebrow: "Complete Financial Protection",
     headline: ["Grow wealth.", "Protect your", "family's future."],
     accent: "family's future.",
-    sub: "From ELSS tax-saving funds to term insurance and health covers — a holistic approach that builds and protects simultaneously.",
-    stat: { label: "Families Protected", value: "240+" },
+    sub: "From ELSS tax-saving funds to term insurance and health covers — a holistic approach that builds and protects your family simultaneously.",
     cta: "Explore Our Solutions",
-    color: "from-brand-gold/8 via-transparent to-brand/10",
+    bg: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=1600&q=80",
   },
 ];
 
@@ -133,19 +129,25 @@ function Hero() {
 
   return (
     <section className="relative min-h-[92vh] flex flex-col overflow-hidden">
-      {/* Animated background gradient */}
+      {/* Full-bleed background image per slide */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={current}
-          className={`absolute inset-0 -z-10 bg-gradient-to-br ${slide.color}`}
+          key={current + "-bg"}
+          className="absolute inset-0 -z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        />
+          transition={{ duration: 0.9 }}
+        >
+          <img
+            src={slide.bg}
+            alt=""
+            aria-hidden
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-brand-deep/75" />
+        </motion.div>
       </AnimatePresence>
-      <div className="absolute top-20 -left-32 size-[500px] rounded-full bg-brand/8 blur-3xl -z-10" />
-      <div className="absolute bottom-0 -right-20 size-[600px] rounded-full bg-brand-gold/8 blur-3xl -z-10" />
 
       {/* Main content */}
       <div className="mx-auto flex-1 grid max-w-7xl gap-12 px-6 pt-16 pb-10 lg:grid-cols-2 lg:items-center w-full">
@@ -159,14 +161,14 @@ function Hero() {
               exit={{ opacity: 0, y: direction * -30 }}
               transition={{ duration: 0.55, ease: [0.19, 1, 0.22, 1] }}
             >
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand/20 bg-brand/8 px-4 py-2 text-[11px] font-mono uppercase tracking-[0.22em] text-brand">
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-mono uppercase tracking-[0.22em] text-brand-gold backdrop-blur-sm">
                 <Sparkles className="size-3" /> {slide.eyebrow}
               </div>
 
-              <h1 className="mt-7 font-display text-5xl md:text-6xl lg:text-[5rem] leading-[0.97] text-ink">
+              <h1 className="mt-7 font-display text-5xl md:text-6xl lg:text-[5rem] leading-[0.97] text-white">
                 {slide.headline.map((line, i) =>
                   line === slide.accent ? (
-                    <em key={i} className="text-brand not-italic font-display italic">
+                    <em key={i} className="text-brand-gold not-italic font-display italic">
                       {line}{" "}
                     </em>
                   ) : (
@@ -175,28 +177,19 @@ function Hero() {
                 )}
               </h1>
 
-              <p className="mt-6 max-w-xl text-lg text-ink-muted leading-relaxed">{slide.sub}</p>
-
-              {/* Stat pill */}
-              <div className="mt-7 inline-flex items-center gap-3 rounded-2xl border border-brand/15 bg-brand/5 px-5 py-3">
-                <BarChart3 className="size-5 text-brand shrink-0" />
-                <div>
-                  <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted">{slide.stat.label}</div>
-                  <div className="font-display text-2xl text-brand">{slide.stat.value}</div>
-                </div>
-              </div>
+              <p className="mt-6 max-w-xl text-lg text-white/70 leading-relaxed">{slide.sub}</p>
 
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center gap-2 rounded-full bg-brand px-7 py-4 text-sm font-semibold text-white shadow-glass transition hover:bg-brand-deep"
+                  className="group inline-flex items-center gap-2 rounded-full bg-brand-gold px-7 py-4 text-sm font-semibold text-brand-deep shadow-glass transition hover:bg-white"
                 >
                   {slide.cta}
                   <ArrowRight className="size-4 transition group-hover:translate-x-0.5" />
                 </Link>
                 <Link
                   to="/who-we-are"
-                  className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-4 text-sm font-semibold text-ink hover:bg-accent"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-semibold text-white hover:bg-white/20 backdrop-blur-sm transition"
                 >
                   Learn About RSI
                 </Link>
@@ -212,13 +205,13 @@ function Hero() {
                 onClick={() => go(i)}
                 className={`transition-all rounded-full ${
                   i === current
-                    ? "w-8 h-2 bg-brand"
-                    : "w-2 h-2 bg-border hover:bg-brand/40"
+                    ? "w-8 h-2 bg-brand-gold"
+                    : "w-2 h-2 bg-white/30 hover:bg-white/60"
                 }`}
                 aria-label={`Slide ${i + 1}`}
               />
             ))}
-            <span className="ml-2 font-mono text-[10px] text-ink-muted uppercase tracking-widest">
+            <span className="ml-2 font-mono text-[10px] text-white/40 uppercase tracking-widest">
               {String(current + 1).padStart(2, "0")} / {String(HERO_SLIDES.length).padStart(2, "0")}
             </span>
           </div>
@@ -245,7 +238,7 @@ function Hero() {
       <div className="flex justify-center pb-8">
         <button
           onClick={scrollToContent}
-          className="flex flex-col items-center gap-2 text-ink-muted hover:text-brand transition group"
+          className="flex flex-col items-center gap-2 text-white/40 hover:text-white transition group"
           aria-label="Scroll down"
         >
           <span className="font-mono text-[9px] uppercase tracking-widest">Explore More</span>
