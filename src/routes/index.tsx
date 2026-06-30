@@ -273,76 +273,106 @@ function Hero() {
   );
 }
 
-/* Hero rotating info card — text only, no numbers */
+/* Hero rotating info card */
 function HeroCard({ index }: { index: number }) {
   const cards = [
-    /* Card 0 — Why SIP */
-    <div className="rounded-3xl border border-white/10 bg-white/10 backdrop-blur-md shadow-glass p-8 space-y-5">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-brand-gold">Why Start a SIP?</div>
-      <p className="text-white/80 leading-relaxed text-sm">
-        A Systematic Investment Plan lets you invest a fixed amount every month — automatically. It removes emotion from investing, averages out market highs and lows, and turns small, consistent contributions into meaningful wealth over time.
-      </p>
-      <ul className="space-y-2">
-        {["Starts at just ₹500 per month", "No need to time the market", "Builds discipline effortlessly", "Pause or stop anytime"].map((pt) => (
-          <li key={pt} className="flex items-center gap-2 text-sm text-white/70">
-            <CheckCircle2 className="size-3.5 text-brand-gold shrink-0" /> {pt}
-          </li>
-        ))}
-      </ul>
-    </div>,
-
-    /* Card 1 — Our approach */
-    <div className="rounded-3xl bg-brand-gold/10 border border-brand-gold/20 backdrop-blur-md shadow-glass p-8 space-y-5">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-brand-gold">Our Approach</div>
-      <p className="text-white/80 leading-relaxed text-sm">
-        We don't sell products — we build plans. Every recommendation we make starts with understanding your life: your goals, your income, your family, and your timeline. Only then do we choose the instruments.
-      </p>
-      <div className="space-y-2 pt-2 border-t border-white/10">
-        {["Listen first, recommend second", "Goal-linked, not product-driven", "Transparent — no hidden charges", "Long-term relationship, not a transaction"].map((pt) => (
-          <div key={pt} className="flex items-center gap-2 text-sm text-white/70">
-            <ArrowRight className="size-3.5 text-brand-gold shrink-0" /> {pt}
-          </div>
-        ))}
+    /* Card 0 — SIP snapshot */
+    <div className="rounded-3xl border border-border bg-card shadow-glass p-8 space-y-6">
+      <div className="flex items-center justify-between">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">SIP Portfolio Snapshot</div>
+        <span className="text-[10px] font-mono bg-green-50 text-green-600 border border-green-200 rounded-full px-2 py-0.5">Live</span>
       </div>
-    </div>,
-
-    /* Card 2 — Services overview */
-    <div className="rounded-3xl border border-white/10 bg-white/10 backdrop-blur-md shadow-glass p-8 space-y-4">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-brand-gold">What We Offer</div>
       <div className="space-y-3">
         {[
-          { icon: TrendingUp, label: "SIP & Mutual Fund Advisory" },
-          { icon: ShieldCheck, label: "Insurance & Protection Planning" },
-          { icon: Target, label: "Goal-Based Financial Planning" },
-          { icon: RefreshCw, label: "Portfolio Review & Rebalancing" },
-          { icon: Eye, label: "Tax Saving & ELSS Investments" },
-          { icon: Compass, label: "Retirement & Child Education Planning" },
+          { fund: "Large Cap Fund", growth: "+18.4%", color: "bg-brand" },
+          { fund: "Flexi Cap Fund", growth: "+24.1%", color: "bg-brand-gold" },
+          { fund: "ELSS Tax Saver", growth: "+21.7%", color: "bg-brand-deep" },
+        ].map((f) => (
+          <div key={f.fund} className="flex items-center gap-3">
+            <div className={`h-2 rounded-full ${f.color}`} style={{ width: `${parseFloat(f.growth) * 3}px` }} />
+            <div className="flex-1 flex justify-between text-sm">
+              <span className="text-ink-muted">{f.fund}</span>
+              <span className="font-semibold text-green-600">{f.growth}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="pt-2 border-t border-border flex items-center justify-between">
+        <div>
+          <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted">Total Invested</div>
+          <div className="font-display text-2xl text-ink">₹18,00,000</div>
+        </div>
+        <div className="text-right">
+          <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted">Current Value</div>
+          <div className="font-display text-2xl text-brand">₹26,40,000</div>
+        </div>
+      </div>
+    </div>,
+
+    /* Card 1 — SIP calculator preview */
+    <div className="rounded-3xl bg-brand-deep text-white shadow-glass p-8 space-y-5">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-brand-gold">₹5,000/month SIP · 10 years</div>
+      <div className="text-center py-4">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-white/50">Grows Into</div>
+        <div className="font-display text-6xl text-brand-gold mt-2">₹11.6L</div>
+        <div className="font-mono text-[10px] text-white/40 mt-2">At 12% annualized returns</div>
+      </div>
+      <div className="grid grid-cols-3 gap-3 pt-2 border-t border-white/10">
+        {[
+          { label: "Invested", val: "₹6L" },
+          { label: "Gain", val: "₹5.6L" },
+          { label: "Return", val: "93.4%" },
         ].map((s) => (
-          <div key={s.label} className="flex items-center gap-3 p-2.5 rounded-xl bg-white/5 hover:bg-white/10 transition">
-            <s.icon className="size-4 text-brand-gold shrink-0" />
-            <span className="text-sm text-white/80">{s.label}</span>
+          <div key={s.label} className="text-center">
+            <div className="font-display text-xl text-white">{s.val}</div>
+            <div className="font-mono text-[8px] uppercase tracking-widest text-white/40 mt-0.5">{s.label}</div>
+          </div>
+        ))}
+      </div>
+      <Link to="/resources" className="block text-center text-[11px] font-mono uppercase tracking-widest text-brand-gold hover:text-white transition pt-1">
+        Try Full Calculator →
+      </Link>
+    </div>,
+
+    /* Card 2 — services */
+    <div className="rounded-3xl border border-border bg-card shadow-glass p-8 space-y-4">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-brand">What We Offer</div>
+      <div className="space-y-3">
+        {[
+          { icon: TrendingUp, label: "SIP & Mutual Fund Advisory", badge: "Most Popular" },
+          { icon: ShieldCheck, label: "Insurance Planning", badge: "Essential" },
+          { icon: Target, label: "Goal-Based Financial Planning", badge: "Personalized" },
+          { icon: RefreshCw, label: "Portfolio Review & Rebalancing", badge: "Quarterly" },
+        ].map((s) => (
+          <div key={s.label} className="flex items-center gap-3 p-3 rounded-xl bg-brand-bg hover:bg-brand-soft transition">
+            <s.icon className="size-4 text-brand shrink-0" />
+            <span className="text-sm text-ink flex-1">{s.label}</span>
+            <span className="text-[9px] font-mono uppercase tracking-wide text-brand-gold bg-brand-gold/10 px-2 py-0.5 rounded-full">{s.badge}</span>
           </div>
         ))}
       </div>
     </div>,
 
-    /* Card 3 — Why RSI */
-    <div className="rounded-3xl bg-brand-gold/10 border border-brand-gold/20 backdrop-blur-md shadow-glass p-8 space-y-5">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-brand-gold">Why Choose RSI?</div>
-      <p className="text-white/80 leading-relaxed text-sm">
-        Rudrans Systematic Investment is an AMFI-registered Mutual Fund Distributor based in Surat, serving families and professionals across India with honest, personalised financial guidance.
-      </p>
-      <div className="space-y-3 pt-2 border-t border-white/10">
+    /* Card 3 — trust stats */
+    <div className="rounded-3xl border border-border bg-card shadow-glass p-8 space-y-6">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-brand">RSI By Numbers</div>
+      <div className="grid grid-cols-2 gap-4">
         {[
-          { icon: CheckCircle2, text: "Zero advisory fees — ever" },
-          { icon: ShieldCheck, text: "SEBI regulated · ARN certified" },
-          { icon: Heart, text: "Client interest always first" },
-          { icon: Award, text: "Serving families across Gujarat & India" },
-        ].map((it) => (
-          <div key={it.text} className="flex items-center gap-2.5 text-sm text-white/70">
-            <it.icon className="size-4 text-brand-gold shrink-0" /> {it.text}
+          { icon: Users, val: "240+", label: "Happy Investors" },
+          { icon: Award, val: "8+ Yrs", label: "Advisory Experience" },
+          { icon: BarChart3, val: "94.2%", label: "Goal Achievement" },
+          { icon: Star, val: "4.9/5", label: "Client Satisfaction" },
+        ].map((s) => (
+          <div key={s.label} className="rounded-2xl bg-brand-bg p-4 text-center">
+            <s.icon className="size-5 text-brand mx-auto mb-2" />
+            <div className="font-display text-2xl text-ink">{s.val}</div>
+            <div className="font-mono text-[8px] uppercase tracking-widest text-ink-muted mt-1">{s.label}</div>
           </div>
         ))}
+      </div>
+      <div className="flex items-center gap-2 text-sm text-ink-muted border-t border-border pt-4">
+        <CheckCircle2 className="size-4 text-green-500 shrink-0" />
+        SEBI-registered · ARN certified mutual fund distributor
       </div>
     </div>,
   ];
@@ -425,14 +455,23 @@ function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
-          className="lg:col-span-5 flex items-center justify-center"
+          className="lg:col-span-5"
         >
-          <div className="rounded-[2rem] border border-border bg-brand-bg shadow-glass p-16 flex items-center justify-center">
-            <img
-              src="/logo.jpg"
-              alt="Rudrans Systematic Investment"
-              className="w-64 h-64 object-contain"
-            />
+          <div className="relative">
+            <div className="overflow-hidden rounded-[2rem] border border-border shadow-glass">
+              <img
+                src={founderImg}
+                alt="Dharmitsinh Solanki, Founder"
+                width={1024}
+                height={1280}
+                loading="lazy"
+                className="aspect-[4/5] w-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-6 -right-6 glass-panel rounded-2xl px-6 py-4 shadow-glass">
+              <div className="font-display text-xl text-brand-deep">Dharmitsinh Solanki</div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">Founder · RSI · Surat</div>
+            </div>
           </div>
         </motion.div>
 
@@ -454,13 +493,26 @@ function About() {
               protect what you've built, and achieve the life you've envisioned.
             </p>
             <p>
-              We specialise in goal-based financial planning, mutual fund distribution, SIP advisory,
+              With over 8 years of experience and 240+ satisfied investor families across Surat and Gujarat,
+              we specialize in goal-based financial planning, mutual fund distribution, SIP advisory,
               and comprehensive insurance solutions — all tailored to your unique financial journey.
             </p>
             <p>
               We earn standard AMC distributor commissions, so you pay zero advisory fees. Our success is
-              measured entirely by yours.
+              measured by yours.
             </p>
+          </div>
+          <div className="mt-8 grid grid-cols-3 gap-4">
+            {[
+              { val: "240+", label: "Investor Families" },
+              { val: "8+", label: "Years Experience" },
+              { val: "₹12Cr+", label: "Assets Managed" },
+            ].map((s) => (
+              <div key={s.label} className="rounded-2xl bg-brand-bg p-4 text-center border border-border">
+                <div className="font-display text-3xl text-brand">{s.val}</div>
+                <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted mt-1">{s.label}</div>
+              </div>
+            ))}
           </div>
           <Link
             to="/who-we-are"
