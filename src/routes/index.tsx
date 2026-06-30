@@ -56,6 +56,7 @@ function Home() {
       <Calculator />
       <Knowledge />
       <Testimonials />
+      <FAQSection />
       <FinalCTA />
     </SiteLayout>
   );
@@ -836,6 +837,136 @@ function Testimonials() {
             </div>
           ))}
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- FAQ ---------- */
+const HOME_FAQS = [
+  {
+    q: "What services does Rudrans Investment provide?",
+    a: "Rudrans Investment helps individuals and families achieve their financial goals through Mutual Funds, SIPs, ELSS, Tax-Saving Investments, Children's Education Planning, Retirement Planning, Wealth Creation, and Goal-Based Financial Planning. We recommend investment strategies based on your financial objectives, risk profile, and investment horizon.",
+  },
+  {
+    q: "Do you offer insurance or other financial products?",
+    a: "Yes. In addition to mutual fund investments, we assist with insurance solutions and connect you with trusted financial professionals for health insurance, life insurance, loans, and other financial services whenever required.",
+  },
+  {
+    q: "How do you charge for your services?",
+    a: "Rudrans Investment is an AMFI Registered Mutual Fund Distributor. We receive distribution commissions directly from Asset Management Companies (AMCs) for regular mutual fund investments. There are no separate advisory charges — our recommendations are always based on your financial needs and long-term investment goals.",
+  },
+  {
+    q: "Do you serve clients only in Surat?",
+    a: "No. While our office is based in Surat, Gujarat, we proudly serve clients across India through secure digital onboarding, online investment platforms, and personalised virtual consultations.",
+  },
+  {
+    q: "Who can become a client?",
+    a: "We work with salaried professionals, business owners, NRIs, retirees, young investors, and families committed to building long-term wealth through disciplined investing. Whether you're just starting out or managing an established portfolio, we're here to help.",
+  },
+  {
+    q: "Is there a minimum investment amount?",
+    a: "No. You can begin investing with an SIP starting as low as ₹500 in many mutual fund schemes. We believe everyone deserves access to professional investment guidance, regardless of the investment amount.",
+  },
+  {
+    q: "Is my money safe when I invest through Rudrans Investment?",
+    a: "Absolutely. Your investments are made directly in your name with the respective Asset Management Companies (AMCs). Rudrans Investment never holds or controls your investment money. All transactions are securely processed through authorised banking channels and require your approval.",
+  },
+  {
+    q: "What if I decide to stop working with Rudrans Investment?",
+    a: "You are always in control of your investments. If you choose to discontinue our services, you may transfer your portfolio to another distributor, continue managing your investments independently, or redeem your investments according to applicable scheme terms.",
+  },
+  {
+    q: "What happens to my investments if Rudrans Investment closes its operations?",
+    a: "Your investments remain completely safe. They are held with the respective AMCs and regulated by SEBI and AMFI. Even if our business operations change in the future, your investments remain in your name and can be accessed or managed through the AMC or another authorised distributor.",
+  },
+  {
+    q: "Why should I choose Rudrans Investment?",
+    a: "We focus on building long-term relationships through personalised financial planning, goal-based investment strategies, expert mutual fund recommendations, regular portfolio reviews, transparent and ethical advice, and dedicated customer support — with the singular objective of helping you achieve financial peace of mind.",
+  },
+  {
+    q: "How can I contact Rudrans Investment?",
+    a: "You can reach us by phone, WhatsApp, email, or by visiting our Surat office. Our team is always happy to answer your questions, review your portfolio, and help you make informed investment decisions.",
+  },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="rounded-2xl border border-border bg-card overflow-hidden"
+    >
+      <button
+        onClick={() => setOpen((v) => !v)}
+        className="w-full flex items-center justify-between gap-4 px-7 py-5 text-left hover:bg-brand-bg transition"
+      >
+        <span className="font-display text-lg text-ink">{q}</span>
+        <ChevronDown className={`size-5 text-brand shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            className="overflow-hidden"
+          >
+            <p className="px-7 pb-6 pt-2 text-ink-muted leading-relaxed border-t border-border">{a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
+
+function FAQSection() {
+  const [showAll, setShowAll] = useState(false);
+  const visible = showAll ? HOME_FAQS : HOME_FAQS.slice(0, 6);
+
+  return (
+    <section className="border-t border-border bg-brand-bg py-28">
+      <div className="mx-auto max-w-4xl px-6">
+        <div className="text-center mb-14">
+          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">FAQ</div>
+          <h2 className="mt-5 font-display text-5xl md:text-6xl leading-[1] text-ink">
+            Frequently asked <em className="italic text-brand">questions.</em>
+          </h2>
+          <p className="mt-5 text-ink-muted max-w-xl mx-auto">
+            Everything you need to know about investing with Rudrans Investment — clear answers, no jargon.
+          </p>
+        </div>
+
+        <div className="space-y-3">
+          {visible.map((faq) => (
+            <FAQItem key={faq.q} q={faq.q} a={faq.a} />
+          ))}
+        </div>
+
+        {!showAll && (
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold text-ink hover:bg-accent hover:border-brand/30 transition"
+            >
+              Show all {HOME_FAQS.length} questions <ChevronDown className="size-4 text-brand" />
+            </button>
+          </div>
+        )}
+
+        <div className="mt-12 rounded-3xl border border-brand/20 bg-brand/5 p-8 text-center">
+          <p className="text-ink-muted">Still have questions?</p>
+          <h3 className="mt-2 font-display text-3xl text-ink">We're happy to help.</h3>
+          <Link
+            to="/contact"
+            className="mt-5 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white hover:bg-brand-deep transition"
+          >
+            Talk to an advisor <ArrowRight className="size-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
