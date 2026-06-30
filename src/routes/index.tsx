@@ -130,6 +130,24 @@ function Hero() {
 
   return (
     <section className="relative min-h-[92vh] flex flex-col overflow-hidden">
+      {/* Scrolling ticker strip */}
+      <div className="relative z-10 bg-brand-deep/90 border-b border-white/10 backdrop-blur-sm overflow-hidden">
+        <div className="flex whitespace-nowrap animate-marquee">
+          {[...Array(4)].map((_, i) => (
+            <span key={i} className="inline-flex items-center shrink-0 px-8 py-2.5 gap-6 text-[11px] font-mono uppercase tracking-[0.2em] text-white/80">
+              <span className="text-brand-gold font-semibold">Rudrans Investment</span>
+              <span className="text-white/30">•</span>
+              <span>AMFI Registered Mutual Fund Distributor</span>
+              <span className="text-white/30">•</span>
+              <span>Helping You Build Wealth with Confidence</span>
+              <span className="text-white/30">•</span>
+              <span className="text-brand-gold">ARN – 143490</span>
+              <span className="text-white/30">•</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* Full-bleed background image per slide */}
       <AnimatePresence mode="wait">
         <motion.div

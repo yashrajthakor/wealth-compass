@@ -170,3 +170,9 @@
 .animate-float { animation: rsi-float 6s ease-in-out infinite; }
 .animate-float-slow { animation: rsi-float-slow 9s ease-in-out infinite; }
 .animate-rise { animation: rsi-rise 0.8s cubic-bezier(0.19, 1, 0.22, 1) both; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee { animation: marquee 28s linear infinite; }
