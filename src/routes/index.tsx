@@ -13,9 +13,6 @@ import {
   RefreshCw,
   ChevronDown,
   CheckCircle2,
-  Users,
-  Award,
-  BarChart3,
   Star,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
@@ -74,7 +71,7 @@ const HERO_SLIDES = [
   },
   {
     eyebrow: "Think Beyond Limits",
-    headline: ["Turn ₹500/month into", "your", "financial freedom."],
+    headline: ["Turn small savings into", "your", "financial freedom."],
     accent: "your",
     sub: "Small, consistent investments compound into life-changing wealth over time. Rupee-cost averaging, expert fund selection and goal-linked planning — all working together for you.",
     cta: "Calculate Your Returns",
@@ -139,10 +136,11 @@ function Hero() {
               <span className="text-white/30">•</span>
               <span>AMFI Registered Mutual Fund Distributor</span>
               <span className="text-white/30">•</span>
+              <span className="text-brand-gold">ARN 305864</span>
+              <span className="text-white/30">•</span>
               <span>Helping You Build Wealth with Confidence</span>
               <span className="text-white/30">•</span>
-              <span className="text-brand-gold">ARN – 143490</span>
-              <span className="text-white/30">•</span>
+             
             </span>
           ))}
         </div>
@@ -230,9 +228,6 @@ function Hero() {
                 aria-label={`Slide ${i + 1}`}
               />
             ))}
-            <span className="ml-2 font-mono text-[10px] text-white/40 uppercase tracking-widest">
-              {String(current + 1).padStart(2, "0")} / {String(HERO_SLIDES.length).padStart(2, "0")}
-            </span>
           </div>
         </div>
 
@@ -273,59 +268,46 @@ function Hero() {
   );
 }
 
-/* Hero rotating info card */
+/* Hero rotating info card — content-only, no performance figures or vanity stats */
 function HeroCard({ index }: { index: number }) {
   const cards = [
-    /* Card 0 — SIP snapshot */
+    /* Card 0 — Our approach */
     <div className="rounded-3xl border border-border bg-card shadow-glass p-8 space-y-6">
       <div className="flex items-center justify-between">
-        <div className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">SIP Portfolio Snapshot</div>
-        <span className="text-[10px] font-mono bg-green-50 text-green-600 border border-green-200 rounded-full px-2 py-0.5">Live</span>
+        <div className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">Our Approach</div>
+        <span className="text-[10px] font-mono bg-green-50 text-green-600 border border-green-200 rounded-full px-2 py-0.5">Goals First</span>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-4">
         {[
-          { fund: "Large Cap Fund", growth: "+18.4%", color: "bg-brand" },
-          { fund: "Flexi Cap Fund", growth: "+24.1%", color: "bg-brand-gold" },
-          { fund: "ELSS Tax Saver", growth: "+21.7%", color: "bg-brand-deep" },
+          { icon: Compass, label: "We start by understanding your goals" },
+          { icon: Target, label: "We match funds to your risk profile" },
+          { icon: RefreshCw, label: "We review and rebalance regularly" },
         ].map((f) => (
-          <div key={f.fund} className="flex items-center gap-3">
-            <div className={`h-2 rounded-full ${f.color}`} style={{ width: `${parseFloat(f.growth) * 3}px` }} />
-            <div className="flex-1 flex justify-between text-sm">
-              <span className="text-ink-muted">{f.fund}</span>
-              <span className="font-semibold text-green-600">{f.growth}</span>
-            </div>
+          <div key={f.label} className="flex items-center gap-3">
+            <f.icon className="size-4 text-brand shrink-0" />
+            <span className="text-sm text-ink-muted">{f.label}</span>
           </div>
         ))}
       </div>
-      <div className="pt-2 border-t border-border flex items-center justify-between">
-        <div>
-          <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted">Total Invested</div>
-          <div className="font-display text-2xl text-ink">₹18,00,000</div>
-        </div>
-        <div className="text-right">
-          <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted">Current Value</div>
-          <div className="font-display text-2xl text-brand">₹26,40,000</div>
-        </div>
+      <div className="pt-4 border-t border-border">
+        <p className="text-sm text-ink-muted leading-relaxed">
+          Every portfolio starts with a conversation, not a template.
+        </p>
       </div>
     </div>,
 
-    /* Card 1 — SIP calculator preview */
-    <div className="rounded-3xl bg-brand-deep text-white shadow-glass p-8 space-y-5">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-brand-gold">₹5,000/month SIP · 10 years</div>
+    /* Card 1 — SIP calculator teaser */
+    <div className="rounded-3xl bg-brand-deep text-white shadow-glass p-8 space-y-6">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-brand-gold">SIP Wealth Calculator</div>
       <div className="text-center py-4">
-        <div className="font-mono text-[10px] uppercase tracking-widest text-white/50">Grows Into</div>
-        <div className="font-display text-6xl text-brand-gold mt-2">₹11.6L</div>
-        <div className="font-mono text-[10px] text-white/40 mt-2">At 12% annualized returns</div>
+        <TrendingUp className="size-10 text-brand-gold mx-auto mb-4" />
+        <div className="font-display text-2xl text-white">See your money multiply</div>
+        <div className="font-mono text-[10px] text-white/50 mt-2">Enter your own amount &amp; time horizon</div>
       </div>
-      <div className="grid grid-cols-3 gap-3 pt-2 border-t border-white/10">
-        {[
-          { label: "Invested", val: "₹6L" },
-          { label: "Gain", val: "₹5.6L" },
-          { label: "Return", val: "93.4%" },
-        ].map((s) => (
-          <div key={s.label} className="text-center">
-            <div className="font-display text-xl text-white">{s.val}</div>
-            <div className="font-mono text-[8px] uppercase tracking-widest text-white/40 mt-0.5">{s.label}</div>
+      <div className="grid grid-cols-3 gap-3 pt-2 border-t border-white/10 text-center">
+        {["Invested", "Growth", "Future Value"].map((label) => (
+          <div key={label} className="font-mono text-[9px] uppercase tracking-widest text-white/50">
+            {label}
           </div>
         ))}
       </div>
@@ -339,10 +321,10 @@ function HeroCard({ index }: { index: number }) {
       <div className="font-mono text-[10px] uppercase tracking-widest text-brand">What We Offer</div>
       <div className="space-y-3">
         {[
-          { icon: TrendingUp, label: "SIP & Mutual Fund Advisory", badge: "Most Popular" },
+          { icon: TrendingUp, label: "SIP & Mutual Fund Advisory", badge: "Popular" },
           { icon: ShieldCheck, label: "Insurance Planning", badge: "Essential" },
           { icon: Target, label: "Goal-Based Financial Planning", badge: "Personalized" },
-          { icon: RefreshCw, label: "Portfolio Review & Rebalancing", badge: "Quarterly" },
+          { icon: RefreshCw, label: "Portfolio Review & Rebalancing", badge: "Ongoing" },
         ].map((s) => (
           <div key={s.label} className="flex items-center gap-3 p-3 rounded-xl bg-brand-bg hover:bg-brand-soft transition">
             <s.icon className="size-4 text-brand shrink-0" />
@@ -353,26 +335,25 @@ function HeroCard({ index }: { index: number }) {
       </div>
     </div>,
 
-    /* Card 3 — trust stats */
+    /* Card 3 — why RSI */
     <div className="rounded-3xl border border-border bg-card shadow-glass p-8 space-y-6">
-      <div className="font-mono text-[10px] uppercase tracking-widest text-brand">RSI By Numbers</div>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="font-mono text-[10px] uppercase tracking-widest text-brand">Why RSI</div>
+      <div className="space-y-3">
         {[
-          { icon: Users, val: "240+", label: "Happy Investors" },
-          { icon: Award, val: "8+ Yrs", label: "Advisory Experience" },
-          { icon: BarChart3, val: "94.2%", label: "Goal Achievement" },
-          { icon: Star, val: "4.9/5", label: "Client Satisfaction" },
+          { icon: ShieldCheck, label: "SEBI-regulated, AMFI registered" },
+          { icon: Eye, label: "Transparent, jargon-free advice" },
+          { icon: RefreshCw, label: "Ongoing portfolio reviews" },
+          { icon: Compass, label: "Goals-first, not product-first" },
         ].map((s) => (
-          <div key={s.label} className="rounded-2xl bg-brand-bg p-4 text-center">
-            <s.icon className="size-5 text-brand mx-auto mb-2" />
-            <div className="font-display text-2xl text-ink">{s.val}</div>
-            <div className="font-mono text-[8px] uppercase tracking-widest text-ink-muted mt-1">{s.label}</div>
+          <div key={s.label} className="rounded-2xl bg-brand-bg p-3 flex items-center gap-3">
+            <s.icon className="size-5 text-brand shrink-0" />
+            <span className="text-sm text-ink">{s.label}</span>
           </div>
         ))}
       </div>
       <div className="flex items-center gap-2 text-sm text-ink-muted border-t border-border pt-4">
         <CheckCircle2 className="size-4 text-green-500 shrink-0" />
-        SEBI-registered · ARN certified mutual fund distributor
+        Zero advisory fees — we earn standard AMC distributor commission
       </div>
     </div>,
   ];
@@ -384,11 +365,11 @@ function HeroCard({ index }: { index: number }) {
 function TrustBar() {
   const items = [
     { icon: CheckCircle2, text: "SEBI Regulated" },
-    { icon: Award, text: "ARN Certified" },
-    { icon: Users, text: "240+ Investors" },
-    { icon: TrendingUp, text: "₹12 Cr+ AUM" },
-    { icon: Star, text: "4.9★ Rated" },
-    { icon: ShieldCheck, text: "Zero Hidden Fees" },
+    { icon: ShieldCheck, text: "AMFI Registered" },
+    { icon: Eye, text: "Transparent Advisory" },
+    { icon: Target, text: "Goal-Based Planning" },
+    { icon: RefreshCw, text: "Ongoing Portfolio Reviews" },
+    { icon: Star, text: "Zero Hidden Fees" },
   ];
   return (
     <div id="trust-bar" className="border-y border-border bg-brand-soft/40">
@@ -461,17 +442,17 @@ function About() {
             <div className="overflow-hidden rounded-[2rem] border border-border shadow-glass">
               <img
                 src={founderImg}
-                alt="Dharmitsinh Solanki, Founder"
+                alt=""
                 width={1024}
-                height={1280}
+                height={1024}
                 loading="lazy"
-                className="aspect-[4/5] w-full object-cover"
+                className="aspect-[5/5] w-full object-cover"
               />
             </div>
-            <div className="absolute -bottom-6 -right-6 glass-panel rounded-2xl px-6 py-4 shadow-glass">
+            {/* <div className="absolute -bottom-6 -right-6 glass-panel rounded-2xl px-6 py-4 shadow-glass">
               <div className="font-display text-xl text-brand-deep">Dharmitsinh Solanki</div>
               <div className="font-mono text-[10px] uppercase tracking-widest text-ink-muted">Founder · RSI · Surat</div>
-            </div>
+            </div> */}
           </div>
         </motion.div>
 
@@ -493,9 +474,9 @@ function About() {
               protect what you've built, and achieve the life you've envisioned.
             </p>
             <p>
-              With over 8 years of experience and 240+ satisfied investor families across Surat and Gujarat,
-              we specialize in goal-based financial planning, mutual fund distribution, SIP advisory,
-              and comprehensive insurance solutions — all tailored to your unique financial journey.
+              We specialize in goal-based financial planning, mutual fund distribution, SIP advisory,
+              and comprehensive insurance solutions — all tailored to your unique financial journey,
+              for families across Surat and Gujarat.
             </p>
             <p>
               We earn standard AMC distributor commissions, so you pay zero advisory fees. Our success is
@@ -504,12 +485,12 @@ function About() {
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4">
             {[
-              { val: "240+", label: "Investor Families" },
-              { val: "8+", label: "Years Experience" },
-              { val: "₹12Cr+", label: "Assets Managed" },
+              { icon: Eye, label: "Transparent Advice" },
+              { icon: Target, label: "Goal-Based Planning" },
+              { icon: ShieldCheck, label: "Zero Advisory Fees" },
             ].map((s) => (
               <div key={s.label} className="rounded-2xl bg-brand-bg p-4 text-center border border-border">
-                <div className="font-display text-3xl text-brand">{s.val}</div>
+                <s.icon className="size-6 text-brand mx-auto mb-2" />
                 <div className="font-mono text-[9px] uppercase tracking-widest text-ink-muted mt-1">{s.label}</div>
               </div>
             ))}
@@ -549,7 +530,7 @@ function Journey() {
               transition={{ delay: i * 0.1, duration: 0.7 }}
               className="relative"
             >
-              <div className="font-display text-5xl text-white/20">0{i + 1}</div>
+              <div className="font-display text-2xl text-white/40 uppercase tracking-widest">Step {i + 1}</div>
               <div className="mt-3 font-display text-2xl text-white">{j.step}</div>
               <p className="mt-2 text-sm text-white/60 leading-relaxed">{j.desc}</p>
               {i < JOURNEY.length - 1 && (
@@ -582,20 +563,23 @@ function ServicesSection() {
           </Link>
         </div>
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {SERVICES.slice(0, 8).map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05, duration: 0.6 }}
-              className="group rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-brand/30 hover:shadow-soft"
-            >
-              <div className="font-mono text-[10px] uppercase tracking-widest text-brand">0{i + 1}</div>
-              <h3 className="mt-4 font-display text-2xl text-ink">{s.title}</h3>
-              <p className="mt-2 text-sm text-ink-muted leading-relaxed">{s.desc}</p>
-            </motion.div>
-          ))}
+          {SERVICES.slice(0, 8).map((s, i) => {
+            const Icon = s.icon ?? ArrowRight;
+            return (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05, duration: 0.6 }}
+                className="group rounded-2xl border border-border bg-card p-7 transition hover:-translate-y-1 hover:border-brand/30 hover:shadow-soft"
+              >
+                <Icon className="size-6 text-brand" />
+                <h3 className="mt-4 font-display text-2xl text-ink">{s.title}</h3>
+                <p className="mt-2 text-sm text-ink-muted leading-relaxed">{s.desc}</p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -626,7 +610,7 @@ function ProductsSection() {
                 className={`${span} ${dark ? "bg-brand-deep text-white" : "glass-panel"} rounded-3xl p-7 transition hover:-translate-y-1`}
               >
                 <div className={`font-mono text-[10px] uppercase tracking-widest ${dark ? "text-brand-gold" : "text-brand"}`}>
-                  Product 0{i + 1}
+                  {p.title}
                 </div>
                 <h3 className={`mt-3 font-display text-3xl ${dark ? "text-white" : "text-ink"}`}>
                   {p.title}
@@ -822,7 +806,7 @@ function Testimonials() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="Investor Stories"
-          title="Trust, earned over years."
+          title="Trust, built one relationship at a time."
           subtitle="Real words from families and professionals partnering with RSI across Surat and Gujarat."
         />
       </div>
@@ -970,7 +954,7 @@ function FAQSection() {
               onClick={() => setShowAll(true)}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-7 py-3 text-sm font-semibold text-ink hover:bg-accent hover:border-brand/30 transition"
             >
-              Show all {HOME_FAQS.length} questions <ChevronDown className="size-4 text-brand" />
+              Show all questions <ChevronDown className="size-4 text-brand" />
             </button>
           </div>
         )}
