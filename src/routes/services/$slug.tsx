@@ -81,7 +81,7 @@ function ServiceDetail() {
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">What's Included</div>
           <h2 className="mt-4 font-display text-4xl text-ink">Key features & deliverables</h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {service.highlights.map((h, i) => (
+            {service.highlights.map((h: string, i: number) => (
               <motion.div
                 key={h}
                 initial={{ opacity: 0, y: 16 }}
@@ -104,7 +104,7 @@ function ServiceDetail() {
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">How It Works</div>
           <h2 className="mt-4 font-display text-4xl text-ink">Our step-by-step process</h2>
           <div className="mt-12 grid gap-6 md:grid-cols-5">
-            {service.process.map((p, i) => (
+            {service.process.map((p: { step: string; desc: string }, i: number) => (
               <motion.div
                 key={p.step}
                 initial={{ opacity: 0, y: 20 }}
@@ -132,7 +132,7 @@ function ServiceDetail() {
             <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">FAQ</div>
             <h2 className="mt-4 font-display text-4xl text-ink">Common questions</h2>
             <div className="mt-10 space-y-4">
-              {service.faq.map((f) => (
+              {service.faq.map((f: { q: string; a: string }) => (
                 <FaqItem key={f.q} q={f.q} a={f.a} />
               ))}
             </div>

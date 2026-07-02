@@ -86,7 +86,7 @@ function ProductDetail() {
             <div className="rounded-3xl border border-border bg-card p-8">
               <div className="font-mono text-[10px] uppercase tracking-widest text-brand">Key Benefits</div>
               <ul className="mt-4 space-y-3">
-                {product.benefits.map((b) => (
+                {product.benefits.map((b: string) => (
                   <li key={b} className="flex items-start gap-2.5 text-sm text-ink">
                     <CheckCircle2 className="size-4 text-brand shrink-0 mt-0.5" />
                     {b}
@@ -115,7 +115,7 @@ function ProductDetail() {
             <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">Types & Variants</div>
             <h2 className="mt-4 font-display text-4xl text-ink">Choose what fits you</h2>
             <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {product.types.map((t, i) => (
+              {product.types.map((t: { name: string; desc: string }, i: number) => (
                 <motion.div
                   key={t.name}
                   initial={{ opacity: 0, y: 16 }}

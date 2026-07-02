@@ -564,7 +564,7 @@ function ServicesSection() {
         </div>
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SERVICES.slice(0, 8).map((s, i) => {
-            const Icon = s.icon ?? ArrowRight;
+            const Icon = ArrowRight;
             return (
               <motion.div
                 key={s.title}

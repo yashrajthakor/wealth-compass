@@ -400,12 +400,128 @@ export const PRODUCTS = [
 ];
 
 export const ARTICLES = [
-  { title: "The Quiet Power of Compounding", read: "5 min read", excerpt: "Why patience, not prediction, builds the most reliable wealth." },
-  { title: "Benefits of Investing Through SIPs", read: "4 min read", excerpt: "How automated discipline outperforms timing the market." },
-  { title: "Mutual Funds, Simplified", read: "6 min read", excerpt: "A clear introduction to asset classes, AMCs and what to look for." },
-  { title: "Insurance Planning Essentials", read: "5 min read", excerpt: "The right amount of cover at the right life stage." },
-  { title: "Smart Financial Habits", read: "3 min read", excerpt: "Five practices that quietly transform your finances over a decade." },
-  { title: "Decoding ELSS for Tax Season", read: "4 min read", excerpt: "Why ELSS is the most efficient 80C tool for long-term investors." },
+  {
+    slug: "quiet-power-of-compounding",
+    title: "The Quiet Power of Compounding",
+    read: "5 min read",
+    category: "Wealth Building",
+    excerpt: "Why patience, not prediction, builds the most reliable wealth.",
+    body: [
+      "Albert Einstein reportedly called compounding the eighth wonder of the world. Whether or not he actually said it, the mathematics behind that quote is beyond debate — small, consistent contributions, left undisturbed for long periods, produce results that feel almost magical.",
+      "Consider two investors. Ravi starts a ₹10,000 monthly SIP at age 25 and stops at 35 — investing for just 10 years. Meera starts the same SIP at 35 and continues until she is 60 — investing for 25 years. At a 12% annualised return, Ravi ends up with more money at 60 than Meera, despite investing 2.5x less. The difference is time.",
+      "The lesson is not about being clever. It is about being early and being patient. Compounding rewards those who allow returns to earn returns, undisturbed by panic selling, market timing or lifestyle-driven withdrawals.",
+      "Three practical takeaways: (1) Start today with whatever you can, even ₹500 per month. (2) Increase your SIP by 10% every year — this alone can double your final corpus. (3) Do not interrupt the process during market falls — that is precisely when compounding does its most valuable work.",
+    ],
+  },
+  {
+    slug: "benefits-of-sip",
+    title: "Benefits of Investing Through SIPs",
+    read: "4 min read",
+    category: "SIP Strategy",
+    excerpt: "How automated discipline outperforms timing the market.",
+    body: [
+      "A Systematic Investment Plan (SIP) automates the single hardest thing about investing — showing up every month, regardless of how markets feel. This one habit outperforms the vast majority of active market-timing strategies over long horizons.",
+      "SIPs work because of rupee-cost averaging. When markets fall, your fixed monthly amount buys more units. When markets rise, it buys fewer. Over a full market cycle, your average purchase price is lower than the average market price — mathematically, you buy more when it is cheap.",
+      "The behavioural benefit is even bigger. Because the SIP is on auto-pilot, you stop reacting to headlines. You stop asking 'is this a good time to invest?' You stop waiting for a crash that never arrives. You simply keep investing, and the market does the rest.",
+      "A ₹10,000 monthly SIP for 20 years at 12% grows to approximately ₹1 crore. The total contribution is only ₹24 lakh. The remaining ₹76 lakh is what markets and time gave you — for the price of a standing instruction on your bank account.",
+    ],
+  },
+  {
+    slug: "mutual-funds-simplified",
+    title: "Mutual Funds, Simplified",
+    read: "6 min read",
+    category: "Fundamentals",
+    excerpt: "A clear introduction to asset classes, AMCs and what to look for.",
+    body: [
+      "A mutual fund pools money from many investors and invests it, on their behalf, in a diversified portfolio of securities. A professional fund manager, backed by a research team, makes the buy/sell decisions. You own units of the fund, and the value of each unit — the NAV — moves in line with the portfolio.",
+      "Funds are broadly categorised by what they invest in. Equity funds invest in stocks and are best for long-term wealth creation (5+ years). Debt funds invest in bonds and are best for stability and short-term needs (1–3 years). Hybrid funds mix both. Within each category, there are further subtypes — large-cap, mid-cap, flexi-cap, corporate bond, gilt, and so on.",
+      "When evaluating a fund, look beyond just recent returns. Check the fund manager's track record across market cycles, the expense ratio, the consistency of returns relative to the benchmark, and the assets under management. A fund that has performed steadily for 10 years through multiple market cycles is often a better choice than last year's chart-topper.",
+      "Finally, remember that mutual funds are regulated by SEBI. Your money is held in a Trust structure — separate from the AMC — with a custodian. This structural separation is why mutual funds have never lost investor money to fraud in India.",
+    ],
+  },
+  {
+    slug: "insurance-planning-essentials",
+    title: "Insurance Planning Essentials",
+    read: "5 min read",
+    category: "Protection",
+    excerpt: "The right amount of cover at the right life stage.",
+    body: [
+      "Insurance is not an investment — it is a shield. Its job is to protect your family's financial future from events that would otherwise be catastrophic. Confusing insurance with investment is the single most expensive mistake Indian households make.",
+      "Every earning member with dependents needs pure term insurance equal to 10–15x their annual income, plus outstanding liabilities. A 30-year-old non-smoker can buy ₹1 crore of term cover for less than ₹800 a month. There is no substitute for this — no endowment plan, ULIP or 'money-back' policy comes close on cost-effectiveness.",
+      "Health insurance is equally non-negotiable. A single major hospitalisation can wipe out a decade of savings. A family floater of ₹10–15 lakh, combined with a super top-up of ₹50 lakh, provides robust protection at a very affordable premium.",
+      "Review your insurance every 3 years and whenever a major life event occurs — marriage, child, home loan, business milestone. Insurance needs grow as responsibilities grow.",
+    ],
+  },
+  {
+    slug: "smart-financial-habits",
+    title: "Smart Financial Habits",
+    read: "3 min read",
+    category: "Money Mindset",
+    excerpt: "Five practices that quietly transform your finances over a decade.",
+    body: [
+      "Great personal finance is boring. It is the result of a handful of habits, repeated consistently, over many years. Here are five that quietly compound into life-changing outcomes.",
+      "1. Pay yourself first. The day your salary arrives, an automated SIP moves a fixed percentage into investments — before you touch it for expenses. What you don't see, you don't spend.",
+      "2. Build a 6-month emergency fund in a liquid mutual fund. This one buffer prevents you from breaking long-term investments during short-term shocks.",
+      "3. Avoid consumer debt. Credit card revolving debt at 36% will erode any investment portfolio. Pay in full, every month, no exceptions.",
+      "4. Increase your SIP by 10% every year. If you can afford ₹10,000 today, you can afford ₹11,000 next year. This single habit can double your final corpus.",
+      "5. Review annually — not weekly. Checking your portfolio daily creates anxiety. Reviewing once a year keeps you objective and disciplined.",
+    ],
+  },
+  {
+    slug: "elss-tax-season",
+    title: "Decoding ELSS for Tax Season",
+    read: "4 min read",
+    category: "Tax Planning",
+    excerpt: "Why ELSS is the most efficient 80C tool for long-term investors.",
+    body: [
+      "Section 80C of the Income Tax Act allows a deduction of up to ₹1.5 lakh per year on qualifying investments. Among all the options — PPF, EPF, NSC, tax-saving FD, life insurance premium — Equity Linked Savings Scheme (ELSS) mutual funds offer the shortest lock-in and the highest long-term return potential.",
+      "An ELSS is simply a diversified equity mutual fund with a 3-year lock-in on each contribution. It gives you the tax deduction of 80C AND the wealth-creation power of equity — the same asset class that has delivered 12–14% annualised over multi-decade periods.",
+      "Compare this to a 5-year tax-saving FD at ~7% (fully taxable) or PPF at 7.1% (tax-free but with a 15-year lock-in). ELSS wins on liquidity and, historically, on returns — with the caveat that it carries market risk.",
+      "Best practice: invest via SIP through the financial year, not in a March rush. Each SIP instalment has its own 3-year lock-in, giving you staggered liquidity and rupee-cost averaging benefits.",
+    ],
+  },
+];
+
+export const DOWNLOADS = [
+  {
+    slug: "investor-starter-kit",
+    title: "RSI Investor Starter Kit",
+    description: "A complete beginner's guide covering the fundamentals of investing, mutual funds, SIPs and risk profiling — everything you need before making your first investment.",
+    pages: 12,
+    sections: [
+      { heading: "Welcome to Investing", body: "Investing is the single most powerful tool you have to convert income into wealth. This starter kit walks you through the first steps every Indian investor should take — completing KYC, opening a folio, and setting up your first SIP." },
+      { heading: "Understanding Mutual Funds", body: "A mutual fund is a professionally managed investment pool. Your money is combined with other investors' money and invested in a diversified portfolio of stocks, bonds or a mix. This provides diversification, professional management and liquidity — all at a low cost." },
+      { heading: "Risk Profiling", body: "Before investing, understand your risk tolerance. A conservative investor may prefer debt-heavy portfolios, while an aggressive investor can allocate more to equity. RSI provides a structured risk profiling questionnaire during onboarding." },
+      { heading: "Choosing Your First Fund", body: "For most first-time investors, a flexi-cap or large-cap equity fund via SIP is an ideal starting point. Start with Rs. 1,000 to Rs. 5,000 per month, and increase annually as your income grows." },
+      { heading: "The Path Ahead", body: "Investing is a lifelong journey. Review annually, stay disciplined during volatility, and increase your SIP with every raise. Compounding will do the rest." },
+    ],
+  },
+  {
+    slug: "sip-goal-planner",
+    title: "SIP Goal Planner Worksheet",
+    description: "A structured worksheet to define your financial goals, calculate the SIP required, and track progress across life milestones.",
+    pages: 8,
+    sections: [
+      { heading: "Step 1: Define Your Goals", body: "List every financial goal — child's education, home purchase, retirement, vacation, emergency fund. Attach a target amount (in today's rupees) and a timeline in years to each goal." },
+      { heading: "Step 2: Adjust for Inflation", body: "Inflate each goal at a realistic rate — 6% for general expenses, 10% for education, 8% for lifestyle purchases. This gives you the future value of each goal at the time you'll need it." },
+      { heading: "Step 3: Calculate Required SIP", body: "Using an assumed return of 12% for equity SIPs and 8% for hybrid, calculate the monthly SIP needed to reach each future goal. The RSI SIP calculator on the Resources page handles this instantly." },
+      { heading: "Step 4: Prioritise & Allocate", body: "If total required SIP exceeds your capacity, prioritise non-negotiable goals (retirement, child education) first. Aim to cover at least 60 to 70 percent of critical goals immediately, then scale up." },
+      { heading: "Step 5: Review Quarterly", body: "Track progress every quarter. Increase SIPs by 10 percent annually, and add fresh SIPs for new goals as your income grows." },
+    ],
+  },
+  {
+    slug: "insurance-coverage-checklist",
+    title: "Insurance Coverage Checklist",
+    description: "A practical checklist to ensure you and your family have the right protection — term, health, critical illness and personal accident cover.",
+    pages: 6,
+    sections: [
+      { heading: "Term Life Insurance", body: "Every earning member with dependents needs term insurance equal to 10 to 15 times annual income plus all outstanding loans. Buy pure term — avoid ULIPs, endowment or money-back policies for insurance needs." },
+      { heading: "Health Insurance", body: "A family floater of Rs. 10 to 15 lakh is the minimum baseline. Top it up with a Rs. 50 lakh super top-up for large hospitalisation events. Prefer insurers with a claim settlement ratio above 90 percent and a wide cashless hospital network." },
+      { heading: "Critical Illness Cover", body: "A one-time lump-sum payout on diagnosis of listed critical illnesses (cancer, heart attack, stroke, kidney failure). Choose Rs. 25 to 50 lakh cover, as a rider or standalone policy." },
+      { heading: "Personal Accident", body: "Provides income replacement and disability cover in case of accidental death or disability. Recommended sum insured: 5 to 10 times annual income." },
+      { heading: "Review & Update", body: "Review all policies every 3 years, or whenever a major life event occurs — marriage, child, home loan, business milestone. Update nominees regularly." },
+    ],
+  },
 ];
 
 export const FAQS = [
