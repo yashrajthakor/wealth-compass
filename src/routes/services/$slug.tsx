@@ -104,7 +104,7 @@ function ServiceDetail() {
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">How It Works</div>
           <h2 className="mt-4 font-display text-4xl text-ink">Our step-by-step process</h2>
           <div className="mt-12 grid gap-6 md:grid-cols-5">
-            {service.process.map((p, i) => (
+            {service.process.map((p: { step: string; desc: string }, i: number) => (
               <motion.div
                 key={p.step}
                 initial={{ opacity: 0, y: 20 }}
