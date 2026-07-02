@@ -81,7 +81,7 @@ function ServiceDetail() {
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">What's Included</div>
           <h2 className="mt-4 font-display text-4xl text-ink">Key features & deliverables</h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {service.highlights.map((h, i) => (
+            {service.highlights.map((h: string, i: number) => (
               <motion.div
                 key={h}
                 initial={{ opacity: 0, y: 16 }}
