@@ -132,7 +132,7 @@ function ServiceDetail() {
             <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand">FAQ</div>
             <h2 className="mt-4 font-display text-4xl text-ink">Common questions</h2>
             <div className="mt-10 space-y-4">
-              {service.faq.map((f) => (
+              {service.faq.map((f: { q: string; a: string }) => (
                 <FaqItem key={f.q} q={f.q} a={f.a} />
               ))}
             </div>
