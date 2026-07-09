@@ -51,7 +51,7 @@ function Home() {
       <ServicesSection />
       <ProductsSection />
       <Calculator />
-      <Knowledge />
+      {/* <Knowledge /> */}
       <Testimonials />
       <FAQSection />
       <FinalCTA />
@@ -112,7 +112,7 @@ function Hero() {
   };
 
   useEffect(() => {
-    intervalRef.current = setInterval(next, 5000);
+    intervalRef.current = setInterval(next, 9000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
@@ -474,14 +474,12 @@ function About() {
               protect what you've built, and achieve the life you've envisioned.
             </p>
             <p>
-              We specialize in goal-based financial planning, mutual fund distribution, SIP advisory,
-              and comprehensive insurance solutions — all tailored to your unique financial journey,
-              for families across Surat and Gujarat.
+              We specialize in goal-based financial planning, mutual fund distribution, SIP advisory, and comprehensive insurance solutions—tailored to your unique financial journey. We serve individuals and families across India, as well as clients on global platforms.
             </p>
-            <p>
+            {/* <p>
               We earn standard AMC distributor commissions, so you pay zero advisory fees. Our success is
               measured by yours.
-            </p>
+            </p> */}
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4">
             {[
@@ -860,7 +858,7 @@ const HOME_FAQS = [
   },
   {
     q: "Do you serve clients only in Surat?",
-    a: "No. While our office is based in Surat, Gujarat, we proudly serve clients across India through secure digital onboarding, online investment platforms, and personalised virtual consultations.",
+    a: "No. While our office is based in Surat, Gujarat, we serve clients across PAN India through online consultations and digital investment platforms. We also work with NRI and international clients from various countries, providing reliable and personalized financial planning and investment services wherever they are.",
   },
   {
     q: "Who can become a client?",
