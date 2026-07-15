@@ -564,7 +564,7 @@ export const TEAM = [
   {
     name: "Suresh Sharma",
     role: "Senior Insurance & Protection Advisor",
-    image: null,
+    image: "/SureshSharma.jpeg",
     bio: "Suresh Sharma brings deep expertise in risk management, life insurance and health protection planning to the RSI team. With over a decade in the insurance advisory space, he specialises in needs-based insurance planning — ensuring each client has exactly the right coverage without overpaying. His philosophy is simple: insurance should protect everything you've worked hard to build. He advises clients on term insurance, health covers, critical illness plans and group protection solutions across leading insurance companies.",
     credentials: ["Senior Insurance Advisor", "Health & Life Specialist"],
   },
