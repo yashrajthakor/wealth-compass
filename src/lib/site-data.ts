@@ -1,3 +1,7 @@
+import sipImage from "@/assets/Should-Do-SIP-Top-Up.jpg";
+import retirementImage from "@/assets/retirement.jpg";
+import  healthinsuranceImage  from "@/assets/health-insurance.jpg";
+
 export const SITE = {
   name: "Rudrans Systematic Investment",
   short: "RSI",
@@ -58,8 +62,8 @@ export const SERVICES = [
     title: "SIP Advisory",
     tagline: "Turn disciplined monthly savings into life-changing wealth.",
     desc: "Structured investment plans engineered for disciplined, long-horizon wealth creation.",
-    image: "/src/assets/Should-Do-SIP-Top-Up.jpg",
-    heroImage: "/src/assets/Should-Do-SIP-Top-Up.jpg",
+    image: sipImage,
+    heroImage: sipImage,
     overview: "A Systematic Investment Plan is the most powerful wealth-creation tool available to Indian investors today. It combines the discipline of regular saving with the mathematics of compounding and the strategy of rupee-cost averaging. Our SIP advisory goes beyond simply setting up a mandate — we choose the right funds, the right amount, and the right time horizon for your specific goals.",
     highlights: [
       "Goal-linked SIP amount calculation",
@@ -174,8 +178,8 @@ export const SERVICES = [
     title: "Retirement Planning",
     tagline: "Work because you want to — not because you have to.",
     desc: "Decade-by-decade frameworks that translate today's savings into tomorrow's freedom.",
-    image: "/src/assets/retirement.jpg",
-    heroImage: "/src/assets/retirement.jpg",
+    image: retirementImage,
+    heroImage: retirementImage,
     overview: "Retirement is not an age — it's a number. The number represents the corpus you need to live comfortably for the rest of your life without depending on anyone. We help you find your number, build toward it systematically, and manage it wisely once you get there. Whether retirement is 30 years or 5 years away, we have a framework for you.",
     highlights: [
       "Retirement corpus calculation with inflation adjustment",
@@ -283,8 +287,8 @@ export const PRODUCTS = [
     slug: "sip",
     title: "Systematic Investment Plan (SIP)",
     overview: "A SIP lets you invest a fixed amount into a mutual fund every month automatically — like an EMI, but for wealth creation. It harnesses the power of compounding, eliminates the need to time the market and instils financial discipline effortlessly.",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
-    heroImage: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1400&q=80",
+    image: sipImage,
+    heroImage: sipImage,
     tagline: "Small, consistent investments. Extraordinary long-term results.",
     whyChoose: "A ₹10,000 monthly SIP for 20 years at 12% returns grows to over ₹99 lakh — on a total investment of just ₹24 lakh. The difference of ₹75 lakh is pure compounding. SIPs also average out market highs and lows through rupee-cost averaging, reducing the impact of volatility.",
     benefits: ["Starts at just ₹500/month", "Automated monthly debit — no effort needed", "Rupee-cost averaging reduces market timing risk", "Step-up facility as your income grows", "Pause or stop anytime without penalty"],
@@ -321,8 +325,8 @@ export const PRODUCTS = [
     slug: "health-insurance",
     title: "Health Insurance",
     overview: "Health insurance covers hospitalisation, surgical procedures, critical illnesses and day-care treatments — protecting your savings from the financial shock of a medical emergency. With healthcare inflation running at 15% annually, adequate health cover is non-negotiable.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&q=80",
-    heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=1400&q=80",
+    image: healthinsuranceImage,
+    heroImage: healthinsuranceImage,
     tagline: "Protect your health. Protect your savings.",
     whyChoose: "Medical costs can wipe out years of savings in a single hospitalisation. A comprehensive health insurance plan ensures that a health crisis never becomes a financial crisis — and your investment portfolio stays untouched.",
     benefits: ["Cashless treatment at 10,000+ network hospitals", "Pre and post-hospitalisation expenses covered", "No-claim bonus — sum insured increases each year", "Tax benefit under Section 80D", "Lifetime renewability guarantee"],
@@ -361,8 +365,8 @@ export const PRODUCTS = [
     slug: "retirement-solutions",
     title: "Retirement Solutions",
     overview: "Retirement planning is about building a corpus large enough to replace your active income indefinitely. We combine the National Pension System, balanced advantage funds, dividend-paying funds and SWPs to build a retirement income machine that lasts 25–30 years post-retirement.",
-    image: "https://images.unsplash.com/photo-1580918256819-53b4d09c74d8?w=800&q=80",
-    heroImage: "https://images.unsplash.com/photo-1580918256819-53b4d09c74d8?w=1400&q=80",
+    image: retirementImage,
+    heroImage: retirementImage,
     tagline: "Build the corpus today. Retire on your own terms tomorrow.",
     whyChoose: "Most Indians underestimate how much they need for retirement. With life expectancy rising to 80+, you may need 25–30 years of post-retirement income. We help you build that corpus systematically — with inflation protection built in.",
     benefits: ["Inflation-adjusted corpus calculation", "NPS for tax savings and guaranteed pension", "Equity exposure in growth phase for inflation-beating returns", "SWP setup for regular monthly income post-retirement", "Capital preservation in final years before retirement"],

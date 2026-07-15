@@ -18,6 +18,7 @@ import {
 import { SiteLayout } from "@/components/site/Layout";
 import { SERVICES, PRODUCTS, ARTICLES, TESTIMONIALS, JOURNEY, SITE } from "@/lib/site-data";
 import founderImg from "@/assets/founder.jpg";
+import sipImage from "@/assets/Should-Do-SIP-Top-Up.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,7 +76,7 @@ const HERO_SLIDES = [
     accent: "your",
     sub: "Small, consistent investments compound into life-changing wealth over time. Rupee-cost averaging, expert fund selection and goal-linked planning — all working together for you.",
     cta: "Calculate Your Returns",
-    bg: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1600&q=80",
+    bg: sipImage,
   },
   {
     eyebrow: "Expert-Led Advisory",
