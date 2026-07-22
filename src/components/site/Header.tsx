@@ -34,6 +34,14 @@ export function Header() {
           })}
         </nav>
         <div className="flex items-center gap-3">
+          <a
+            href="https://www.fundzbazar.com/signin"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="hidden md:inline-flex items-center rounded-full border border-brand px-5 py-2.5 text-sm font-semibold text-brand hover:bg-brand/10 transition-all"
+          >
+            Login Member
+          </a>
           <Link
             to="/contact"
             className="hidden md:inline-flex items-center rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-all hover:bg-brand-deep hover:shadow-glass"

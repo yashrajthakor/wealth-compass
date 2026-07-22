@@ -100,7 +100,8 @@ function fmt(n: number) {
 function SIPCalc() {
   const [m, setM] = useState(10000);
   const [y, setY] = useState(15);
-  const r = 0.12 / 12;
+  const [t, setT] = useState(12);
+  const r = (t / 100) / 12;
   const n = y * 12;
   const fv = m * ((Math.pow(1 + r, n) - 1) / r) * (1 + r);
   return (
@@ -111,6 +112,9 @@ function SIPCalc() {
       <Field label="Years" value={`${y} yrs`}>
         <input type="range" min={1} max={30} step={1} value={y} onChange={(e) => setY(+e.target.value)} className="w-full accent-brand" />
       </Field>
+      <Field label="Assumed return" value={`${t.toFixed(2)} %`}>
+        <input type="range" min={4} max={18} step={0.25} value={t} onChange={(e) => setT(+e.target.value)} className="w-full accent-brand" />
+      </Field>
     </CalcShell>
   );
 }
@@ -118,7 +122,8 @@ function SIPCalc() {
 function LumpsumCalc() {
   const [a, setA] = useState(500000);
   const [y, setY] = useState(10);
-  const fv = a * Math.pow(1 + 0.12, y);
+  const [t, setT] = useState(12);
+  const fv = a * Math.pow(1 + t / 100, y);
   return (
     <CalcShell title="Lumpsum Calculator" result={`₹ ${fmt(fv)}`}>
       <Field label="Investment Amount" value={`₹ ${a.toLocaleString("en-IN")}`}>
@@ -127,6 +132,9 @@ function LumpsumCalc() {
       <Field label="Years" value={`${y} yrs`}>
         <input type="range" min={1} max={30} step={1} value={y} onChange={(e) => setY(+e.target.value)} className="w-full accent-brand" />
       </Field>
+      <Field label="Assumed return" value={`${t.toFixed(2)} %`}>
+        <input type="range" min={4} max={18} step={0.25} value={t} onChange={(e) => setT(+e.target.value)} className="w-full accent-brand" />
+      </Field>
     </CalcShell>
   );
 }
@@ -134,8 +142,9 @@ function LumpsumCalc() {
 function RetirementCalc() {
   const [age, setAge] = useState(30);
   const [target, setTarget] = useState(20000000);
+  const [t, setT] = useState(12);
   const years = Math.max(60 - age, 1);
-  const r = 0.12 / 12;
+  const r = (t / 100) / 12;
   const n = years * 12;
   const sip = (target * r) / (Math.pow(1 + r, n) - 1);
   return (
@@ -145,6 +154,9 @@ function RetirementCalc() {
       </Field>
       <Field label="Retirement Corpus" value={`₹ ${(target / 10000000).toFixed(1)} Cr`}>
         <input type="range" min={5000000} max={100000000} step={500000} value={target} onChange={(e) => setTarget(+e.target.value)} className="w-full accent-brand" />
+      </Field>
+      <Field label="Assumed return" value={`${t.toFixed(2)} %`}>
+        <input type="range" min={4} max={18} step={0.25} value={t} onChange={(e) => setT(+e.target.value)} className="w-full accent-brand" />
       </Field>
     </CalcShell>
   );
