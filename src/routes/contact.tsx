@@ -99,7 +99,7 @@ function FormBlock() {
 
   const whatsapp = () => {
     const text = encodeURIComponent(
-      `Hello RSI, I'm ${data.name || "interested"} from ${data.city || "—"}.\nMobile: ${data.mobile}\nEmail: ${data.email}\n\n${data.message}`
+      `Hello RUDRANS, I'm ${data.name || "interested"} from ${data.city || "—"}.\nMobile: ${data.mobile}\nEmail: ${data.email}\n\n${data.message}`
     );
     window.open(`${SITE.whatsapp}?text=${text}`, "_blank");
   };

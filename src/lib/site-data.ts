@@ -558,14 +558,14 @@ export const TEAM = [
     name: "Dharmitsinh Solanki",
     role: "Founder & Principal Advisor",
     image: "/dharmit.jpg",
-    bio: "Dharmitsinh Solanki founded Rudrans Systematic Investment with a single conviction—that every individual and family deserves honest, personalized financial guidance. As an AMFI-registered Mutual Fund Distributor and certified financial advisor, he helps clients across India, as well as NRIs and international clients, build long-term wealth through goal-based financial planning, disciplined SIP investments, mutual funds, and comprehensive insurance solutions. His approach is rooted in transparency, ethical advice, and long-term relationships. He holds an ARN certification and is a member of the Financial Planning Association of India.",
-    credentials: ["ARN Certified MFD", "AMFI Registered"],
+    bio: "**Dharmitsinh Solanki** founded Rudrans Systematic Investment with a single conviction—that every individual and family deserves honest, personalized financial guidance. As an AMFI-registered Mutual Fund Distributor, he helps clients across India, as well as NRIs and international clients, build long-term wealth through goal-based financial planning, disciplined SIP investments, mutual funds, comprehensive insurance solutions, and Specialised Investment Funds (SIF). His approach is rooted in transparency, ethical advice, and long-term relationships. He holds an ARN certification and offers guidance on Specialised Investment Funds (SIF) as part of a diversified investment strategy.",
+    credentials: ["ARN Certified MFD", "SIF Specialist", "Financial Planning Expert"],
   },
   {
     name: "Suresh Sharma",
     role: "Senior Insurance & Protection Advisor",
     image: "/SureshSharma.jpeg",
-    bio: "Suresh Sharma brings deep expertise in risk management, life insurance and health protection planning to the RSI team. With over a decade in the insurance advisory space, he specialises in needs-based insurance planning — ensuring each client has exactly the right coverage without overpaying. His philosophy is simple: insurance should protect everything you've worked hard to build. He advises clients on term insurance, health covers, critical illness plans and group protection solutions across leading insurance companies.",
-    credentials: ["Senior Insurance Advisor", "Health & Life Specialist"],
+    bio: "Suresh Sharma brings a client-first approach to risk management, life insurance and health protection planning at RSI. He specialises in needs-based insurance planning, helping clients choose the right coverage without unnecessary costs. His philosophy is simple: insurance should protect everything you've worked hard to build. He advises clients on term insurance, health covers, critical illness plans and group protection solutions across leading insurance companies.",
+    credentials: ["Insurance Advisor", "Health & Life Specialist"],
   },
 ];

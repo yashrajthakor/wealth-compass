@@ -55,6 +55,7 @@ function Home() {
       {/* <Knowledge /> */}
       <Testimonials />
       <FAQSection />
+      <Disclaimer />
       <FinalCTA />
     </SiteLayout>
   );
@@ -974,6 +975,27 @@ function FAQSection() {
 }
 
 /* ---------- Final CTA ---------- */
+function Disclaimer() {
+  return (
+    <section className="border-t border-border bg-brand-bg/60 py-16">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="rounded-[2rem] border border-border bg-card p-10 text-sm leading-7 text-ink-muted">
+          <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand mb-4">Disclaimer</div>
+          <p>
+            Mutual Fund investments are subject to market risks, read all scheme related documents carefully. The NAVs of the schemes may go up or down depending upon the factors and forces affecting the securities market including the fluctuations in the interest rates.
+          </p>
+          <p className="mt-4">
+            The past performance of the mutual funds is not necessarily indicative of future performance of the schemes. The Mutual Fund is not guaranteeing or assuring any dividend under any of the schemes and the same is subject to the availability and adequacy of distributable surplus.
+          </p>
+          <p className="mt-4">
+            Investors are requested to review the prospectus carefully and obtain expert professional advice with regard to specific legal, tax and financial implications of the investment/participation in the scheme.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FinalCTA() {
   return (
     <section className="py-28">
