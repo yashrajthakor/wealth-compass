@@ -9,7 +9,7 @@ export const SITE = {
   owner: "Dharmitsinh Solanki",
   phone: "+91 98257 75948",
   phoneRaw: "+919825775948",
-  email: "dharmitsolankifnokite@gmail.com",
+  email: "contact@rudransinvestment.com",
   address: {
     line1: "Shop No. G-25, Soham Arcade",
     line2: "Green City Road, Pal",
