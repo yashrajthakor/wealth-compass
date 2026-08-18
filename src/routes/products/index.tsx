@@ -8,7 +8,7 @@ export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
       { title: "Products — Rudrans Systematic Investment" },
-      { name: "description", content: "Mutual funds, SIP, ELSS, health insurance, life insurance, retirement and child planning solutions — curated for Indian investors." },
+      { name: "description", content: "Mutual funds, SIP, ELSS, health insurance, life insurance, retirement and child planning solutions — curated for investors." },
       { property: "og:title", content: "Products — Rudrans Systematic Investment" },
       { property: "og:description", content: "Targeted investment solutions to scale your net worth and secure your future." },
       { property: "og:url", content: "/products" },

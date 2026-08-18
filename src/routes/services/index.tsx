@@ -8,7 +8,7 @@ export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
       { title: "Services — Rudrans Systematic Investment" },
-      { name: "description", content: "Financial planning, SIP advisory, mutual fund distribution, insurance, tax and retirement planning — tailored for Indian families." },
+      { name: "description", content: "Financial architecture, SIP advisory, mutual fund distribution, insurance, tax and retirement planning — tailored for families." },
       { property: "og:title", content: "Services — Rudrans Systematic Investment" },
       { property: "og:description", content: "Achieve financial success with services tailored to your goals and life stage." },
       { property: "og:url", content: "/services" },

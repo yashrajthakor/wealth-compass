@@ -14,7 +14,7 @@ export function Footer() {
             </span>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-white/60">
-            A modern wealth-creation partner helping Indian families build financial confidence through
+            A modern wealth-creation partner helping families build financial confidence through
             disciplined investing, mutual funds and protection planning.
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-gold">

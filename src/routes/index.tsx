@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Build financial confidence with disciplined SIPs, mutual funds and protection planning. RSI helps Indian families turn consistent investing into generational wealth.",
+          "Build financial confidence with disciplined SIPs, mutual funds and protection planning. RSI helps families turn consistent investing into generational wealth.",
       },
       { property: "og:title", content: "Rudrans Systematic Investment — Smart Wealth Creation" },
       {
@@ -65,7 +65,7 @@ function Home() {
 const HERO_SLIDES = [
   {
     eyebrow: "Your Wealth, Your Future",
-    headline: ["Helping Indian families", "build", "multi-generational wealth."],
+    headline: ["Helping families", "build", "multi-generational wealth."],
     accent: "build",
     sub: "Disciplined SIP planning, curated mutual funds, and comprehensive insurance — all under one trusted roof in Surat.",
     cta: "Start Your SIP Today",
@@ -136,7 +136,7 @@ function Hero() {
             <span key={i} className="inline-flex items-center shrink-0 px-8 py-2.5 gap-6 text-[11px] font-mono uppercase tracking-[0.2em] text-white/80">
               <span className="text-brand-gold font-semibold">Rudrans Investment</span>
               <span className="text-white/30">•</span>
-              <span>AMFI Registered Mutual Fund Distributor</span>
+              <span>AMFI Registered Mutual Fund & SIP Distributor</span>
               <span className="text-white/30">•</span>
               <span className="text-brand-gold">ARN 305864</span>
               <span className="text-white/30">•</span>
@@ -471,7 +471,7 @@ function About() {
           </h2>
           <div className="mt-8 space-y-5 text-base text-ink-muted leading-relaxed">
             <p>
-              At Rudrans Systematic Investment, we believe that every Indian family deserves access to professional,
+              At Rudrans Systematic Investment, we believe that every family deserves access to professional,
               unbiased financial guidance. Our mission is simple: help you build wealth systematically,
               protect what you've built, and achieve the life you've envisioned.
             </p>
@@ -982,7 +982,7 @@ function Disclaimer() {
         <div className="rounded-[2rem] border border-border bg-card p-10 text-sm leading-7 text-ink-muted">
           <div className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand mb-4">Disclaimer</div>
           <p>
-            Mutual Fund investments are subject to market risks, read all scheme related documents carefully. The NAVs of the schemes may go up or down depending upon the factors and forces affecting the securities market including the fluctuations in the interest rates.
+            <strong>Mutual Fund investments are subject to market risks, read all scheme related documents carefully. The NAVs of the schemes may go up or down depending upon the factors and forces affecting the securities market including the fluctuations in the interest rates.</strong>
           </p>
           <p className="mt-4">
             The past performance of the mutual funds is not necessarily indicative of future performance of the schemes. The Mutual Fund is not guaranteeing or assuring any dividend under any of the schemes and the same is subject to the availability and adequacy of distributable surplus.

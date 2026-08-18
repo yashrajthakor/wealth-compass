@@ -29,13 +29,13 @@ export const NAV = [
 
 export const SERVICES = [
   {
-    slug: "financial-planning",
-    title: "Financial Planning",
+    slug: "financial-architecture",
+    title: "Financial Architecture",
     tagline: "Your complete money roadmap — from where you are to where you want to be.",
     desc: "A comprehensive roadmap aligned with your personal goals, cash-flow, and life stage.",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80",
-    overview: "Achieving financial freedom is not about luck — it's about a plan. At RSI, we start with a deep understanding of your income, expenses, responsibilities and aspirations to create a personalised financial plan that evolves with you. From managing day-to-day cash flow to building long-term wealth, we guide you through every financial decision with clarity and confidence.",
+    overview: "Achieving financial freedom is not about luck — it's about a plan. At RSI, we start with a deep understanding of your income, expenses, responsibilities and aspirations to create a personalised financial plan that evolves with you. From managing day-to-day cash flow to building long-term wealth, we guide you through every financial decision with clarity and confidence. Whether you're based in India or abroad as an NRI, we provide tailored solutions for every family's unique situation.",
     highlights: [
       "Detailed cash-flow analysis and budgeting",
       "Net worth assessment and goal mapping",
@@ -51,7 +51,7 @@ export const SERVICES = [
       { step: "Execution", desc: "We implement the plan step by step, making each product decision purposeful." },
       { step: "Review", desc: "Quarterly and annual reviews keep your plan updated as life evolves." },
     ],
-    suited: "Individuals and families at any income level who want to take control of their financial future with clarity and discipline.",
+    suited: "Individuals and families—both domestic and NRIs—at any income level who want to take control of their financial future with clarity and discipline.",
     faq: [
       { q: "How is financial planning different from investing?", a: "Investing is just one part of financial planning. Planning covers budgeting, insurance, taxes, goals and estate — investing is the engine within that bigger framework." },
       { q: "How often should I review my financial plan?", a: "At least annually, and whenever a major life event occurs — a job change, marriage, child, inheritance or significant expense." },
@@ -64,7 +64,7 @@ export const SERVICES = [
     desc: "Structured investment plans engineered for disciplined, long-horizon wealth creation.",
     image: sipImage,
     heroImage: sipImage,
-    overview: "A Systematic Investment Plan is the most powerful wealth-creation tool available to Indian investors today. It combines the discipline of regular saving with the mathematics of compounding and the strategy of rupee-cost averaging. Our SIP advisory goes beyond simply setting up a mandate — we choose the right funds, the right amount, and the right time horizon for your specific goals.",
+    overview: "A Systematic Investment Plan is the most powerful wealth-creation tool available to global investors today. It combines the discipline of regular saving with the mathematics of compounding and the strategy of rupee-cost averaging. Our SIP advisory goes beyond simply setting up a mandate — we choose the right funds, the right amount, and the right time horizon for your specific goals. We serve Indian families and NRIs alike, with seamless support for remittances and international account holdings.",
     highlights: [
       "Goal-linked SIP amount calculation",
       "Fund selection across equity, hybrid and debt categories",
@@ -80,20 +80,20 @@ export const SERVICES = [
       { step: "Mandate Setup", desc: "We handle all paperwork and KYC — a smooth, hassle-free onboarding experience." },
       { step: "Ongoing Review", desc: "Annual review of performance, step-up suggestions and fund upgrades when needed." },
     ],
-    suited: "Salaried professionals, business owners and homemakers looking to invest regularly and build wealth without timing the market.",
+    suited: "Salaried professionals, business owners, homemakers, and NRIs looking to invest regularly and build wealth without timing the market.",
     faq: [
       { q: "What is the minimum SIP amount?", a: "You can start with as little as ₹500 per month. The key is consistency, not the amount." },
       { q: "Can I pause or stop my SIP anytime?", a: "Yes. Most fund houses allow you to pause for up to 3 months or stop entirely with zero penalties." },
     ],
   },
   {
-    slug: "mutual-fund-distribution",
-    title: "Mutual Fund Distribution",
+    slug: "mutual-fund-sip-distribution",
+    title: "Mutual Fund & SIP Distribution",
     tagline: "Professionally managed, diversified portfolios built for your risk appetite.",
     desc: "Curated solutions across equity, debt and hybrid asset classes for any risk appetite.",
     image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1400&q=80",
-    overview: "With thousands of mutual fund schemes available in India, choosing the right ones is overwhelming. As AMFI-registered Mutual Fund Distributors, we simplify this complexity by curating a shortlist of high-quality funds matched to your risk profile, time horizon and financial goals. Our role is not just to sell funds — it is to help you own the right ones.",
+    overview: "With thousands of mutual fund schemes available, choosing the right ones is overwhelming. As AMFI-registered Mutual Fund Distributors, we simplify this complexity by curating a shortlist of high-quality funds matched to your risk profile, time horizon and financial goals. Our role is not just to sell funds — it is to help you own the right ones. We serve Indian investors and NRIs worldwide with tailored fund strategies.",
     highlights: [
       "ARN-certified, SEBI-regulated distribution",
       "Across all major AMCs — HDFC, SBI, ICICI, Mirae, Axis and more",
@@ -122,7 +122,7 @@ export const SERVICES = [
     desc: "ELSS and tax-efficient instruments that grow capital while reducing your liability.",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1400&q=80",
-    overview: "Paying tax is a duty; paying more than necessary is a mistake. Under Section 80C and other provisions, the Indian tax code allows deductions of up to ₹1.5 lakh per year on qualifying investments. We help you use every legitimate rupee of this allowance — and direct it into instruments that also create long-term wealth, not just reduce tax for a year.",
+    overview: "Paying tax is a duty; paying more than necessary is a mistake. For Indian taxpayers, the Indian tax code allows deductions of up to ₹1.5 lakh per year on qualifying investments under Section 80C and other provisions. For NRIs, we provide tax-efficient global wealth strategies aligned with their residential tax obligations. We help you use every legitimate benefit available — and direct it into instruments that also create long-term wealth, not just reduce tax for a year.",
     highlights: [
       "ELSS (Equity Linked Savings Scheme) — shortest 80C lock-in at 3 years",
       "PPF (Public Provident Fund) — risk-free long-term savings",
@@ -151,7 +151,7 @@ export const SERVICES = [
     desc: "Term, health and family-protection strategies sized to your real-world responsibilities.",
     image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=1400&q=80",
-    overview: "Building wealth without protection is like building a house without a foundation. A single medical emergency or untimely death can undo decades of savings in an instant. RSI takes a needs-based approach to insurance — we calculate exactly how much cover you need based on your income, liabilities and dependents, not on what pays the highest commission.",
+    overview: "Building wealth without protection is like building a house without a foundation. A single medical emergency or untimely death can undo decades of savings in an instant. RSI takes a needs-based approach to insurance — we calculate exactly how much cover you need based on your income, liabilities and dependents, not on what pays the highest commission. We advise both Indian families and NRIs on comprehensive protection strategies.",
     highlights: [
       "Pure term insurance — high cover at minimal premium",
       "Family floater and individual health insurance plans",
@@ -209,7 +209,7 @@ export const SERVICES = [
     desc: "Goal-anchored portfolios that mature in step with your child's milestones.",
     image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1400&q=80",
-    overview: "Education costs in India are rising at 10–12% per year — far faster than general inflation. A course that costs ₹15 lakh today will cost ₹40+ lakh in 10 years. We help parents build dedicated education funds that grow in lockstep with these rising costs, ensuring your child's best future is never a financial compromise.",
+    overview: "Education costs are rising rapidly worldwide — 10–12% per year in India, with similar trends globally. A course that costs ₹15 lakh today will cost ₹40+ lakh in 10 years. We help parents build dedicated education funds that grow in lockstep with these rising costs, ensuring your child's best future is never a financial compromise. We serve families in India, abroad and NRIs planning international education for their children.",
     highlights: [
       "Education cost estimation with realistic inflation",
       "Dedicated goal-linked SIP portfolios",
@@ -225,7 +225,7 @@ export const SERVICES = [
       { step: "Portfolio Build", desc: "A dedicated education portfolio is created, separate from your other investments." },
       { step: "Annual Review", desc: "We track progress against the goal and adjust contributions if needed." },
     ],
-    suited: "Parents of children from newborn to 15 years who want to systematically fund education without compromising their own retirement or lifestyle.",
+    suited: "Parents of children from newborn to 15 years—whether based in India or as NRIs—who want to systematically fund education without compromising their own retirement or lifestyle.",
     faq: [
       { q: "Should I use child insurance plans for education?", a: "Traditional child insurance plans often give poor returns. A pure term plan for parents + equity mutual fund SIP is significantly more efficient for education funding." },
       { q: "What if my child gets a scholarship or chooses a different path?", a: "The corpus is yours — you can redirect it to another goal such as a wedding fund, a business seed or retirement." },
@@ -238,7 +238,7 @@ export const SERVICES = [
     desc: "Periodic re-balancing, performance audit and strategy refinement against your benchmarks.",
     image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1400&q=80",
-    overview: "Markets change. Life changes. Your portfolio should change too. RSI conducts periodic portfolio reviews that go beyond just checking returns — we audit fund quality, review asset allocation drift, check if your portfolio still matches your goals, and make precise adjustments. A well-reviewed portfolio is the difference between hitting your targets and falling short.",
+    overview: "Markets change. Life changes. Your portfolio should change too. RSI conducts periodic portfolio reviews that go beyond just checking returns — we audit fund quality, review asset allocation drift, check if your portfolio still matches your goals, and make precise adjustments. A well-reviewed portfolio is the difference between hitting your targets and falling short. We review portfolios for both Indian families and NRIs with diversified international and domestic holdings.",
     highlights: [
       "Performance audit against benchmark and category average",
       "Asset allocation drift correction and rebalancing",
@@ -266,7 +266,7 @@ export const PRODUCTS = [
   {
     slug: "mutual-funds",
     title: "Mutual Funds",
-    overview: "A mutual fund pools money from thousands of investors to purchase a diversified portfolio of stocks, bonds or other securities — managed by professional fund managers. It's the most accessible, liquid and regulated wealth-creation tool available to Indian investors today.",
+    overview: "A mutual fund pools money from thousands of investors to purchase a diversified portfolio of stocks, bonds or other securities — managed by professional fund managers. It's the most accessible, liquid and regulated wealth-creation tool available to investors today.",
     image: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1400&q=80",
     tagline: "Diversified, professionally managed wealth creation for every investor.",
@@ -278,7 +278,7 @@ export const PRODUCTS = [
       { name: "Hybrid Funds", desc: "Mix of equity and debt. Balanced risk-return. Good for moderate investors." },
       { name: "Liquid Funds", desc: "Invest in overnight or very short-term debt. Ideal for emergency funds and short-term parking." },
     ],
-    suited: "First-time investors, salaried professionals, business owners and HNIs looking for a regulated, transparent and liquid vehicle for long-term wealth creation.",
+    suited: "First-time investors, salaried professionals, business owners, NRIs and HNIs looking for a regulated, transparent and liquid vehicle for long-term wealth creation.",
     minInvestment: "₹500 (SIP) / ₹1,000 (Lumpsum)",
     riskLevel: "Low to High (varies by fund type)",
     horizon: "1 year to 20+ years",
@@ -298,7 +298,7 @@ export const PRODUCTS = [
       { name: "Trigger SIP", desc: "Invests additional amounts on market corrections — for tactical investors." },
       { name: "Perpetual SIP", desc: "No end date — runs until you stop it. Best for long-term wealth creation." },
     ],
-    suited: "Salaried professionals, homemakers managing household savings and young earners who want to build wealth systematically without monitoring markets daily.",
+    suited: "Salaried professionals, homemakers managing household savings, young earners, and NRIs who want to build wealth systematically without monitoring markets daily.",
     minInvestment: "₹500/month",
     riskLevel: "Depends on underlying fund",
     horizon: "3 years minimum, ideally 10–20 years",
@@ -336,7 +336,7 @@ export const PRODUCTS = [
       { name: "Critical Illness Plan", desc: "Lump-sum payout on diagnosis of 30+ critical illnesses. Income replacement benefit." },
       { name: "Super Top-Up", desc: "Enhances your existing cover at low cost. Ideal if employer cover is insufficient." },
     ],
-    suited: "Everyone with dependents, self-employed individuals without employer cover, senior citizens and anyone with a family history of serious illness.",
+    suited: "Everyone with dependents, self-employed individuals without employer cover, NRIs abroad, senior citizens and anyone with a family history of serious illness.",
     minInvestment: "₹5,000–₹20,000/year (approx., varies by age and cover)",
     riskLevel: "Not applicable (protection product)",
     horizon: "Annual renewable (lifetime)",
@@ -356,7 +356,7 @@ export const PRODUCTS = [
       { name: "Group Term Insurance", desc: "Employer-provided cover — usually insufficient. Always supplement with a personal term plan." },
       { name: "ULIP", desc: "Market-linked insurance. Generally not recommended — separating insurance and investment is more efficient." },
     ],
-    suited: "All primary earners, married individuals with a spouse or children, and anyone with outstanding home loans or financial liabilities.",
+    suited: "All primary earners, married individuals with a spouse or children, NRIs abroad protecting families at home, and anyone with outstanding home loans or financial liabilities.",
     minInvestment: "₹500–₹2,000/month (pure term, ₹1 Cr cover, age 30)",
     riskLevel: "Not applicable (protection product)",
     horizon: "20–40 years (match with youngest dependent's self-sufficiency)",
@@ -368,7 +368,7 @@ export const PRODUCTS = [
     image: retirementImage,
     heroImage: retirementImage,
     tagline: "Build the corpus today. Retire on your own terms tomorrow.",
-    whyChoose: "Most Indians underestimate how much they need for retirement. With life expectancy rising to 80+, you may need 25–30 years of post-retirement income. We help you build that corpus systematically — with inflation protection built in.",
+    whyChoose: "Most Peoples underestimate how much they need for retirement. With life expectancy rising to 80+, you may need 25–30 years of post-retirement income. We help you build that corpus systematically — with inflation protection built in.",
     benefits: ["Inflation-adjusted corpus calculation", "NPS for tax savings and guaranteed pension", "Equity exposure in growth phase for inflation-beating returns", "SWP setup for regular monthly income post-retirement", "Capital preservation in final years before retirement"],
     types: [
       { name: "NPS (National Pension System)", desc: "Government-backed retirement scheme. Low cost, equity exposure, ₹50,000 extra tax deduction." },
@@ -376,7 +376,7 @@ export const PRODUCTS = [
       { name: "SWP (Systematic Withdrawal Plan)", desc: "Regular monthly income from corpus without depleting principal fast." },
       { name: "Senior Citizen Savings Scheme", desc: "Government-backed, 8%+ return, quarterly payout. Good for post-retirement liquidity." },
     ],
-    suited: "Working professionals 25–55 years old who want to retire comfortably without financial dependence on children or social security.",
+    suited: "Working professionals 25–55 years old—both domestic and NRIs—who want to retire comfortably without financial dependence on children or social security.",
     minInvestment: "₹5,000/month (NPS min ₹1,000/year)",
     riskLevel: "Low to Moderate (reduces as retirement nears)",
     horizon: "10–35 years depending on retirement age",
@@ -396,7 +396,7 @@ export const PRODUCTS = [
       { name: "Sukanya Samriddhi Yojana", desc: "Government scheme for girl child — 8%+ tax-free returns." },
       { name: "Multi-goal Child Plan", desc: "Multiple SIPs — one for school, one for college, one for wedding — tracked separately." },
     ],
-    suited: "Parents of children aged 0–15 who want to systematically fund education and other milestones without last-minute financial stress.",
+    suited: "Parents of children aged 0–15—whether based in India or as NRIs—who want to systematically fund education without last-minute financial stress.",
     minInvestment: "₹1,000/month",
     riskLevel: "Moderate to High (reduces as milestone nears)",
     horizon: "5–20 years",
@@ -493,7 +493,7 @@ export const DOWNLOADS = [
     description: "A complete beginner's guide covering the fundamentals of investing, mutual funds, SIPs and risk profiling — everything you need before making your first investment.",
     pages: 12,
     sections: [
-      { heading: "Welcome to Investing", body: "Investing is the single most powerful tool you have to convert income into wealth. This starter kit walks you through the first steps every Indian investor should take — completing KYC, opening a folio, and setting up your first SIP." },
+      { heading: "Welcome to Investing", body: "Investing is the single most powerful tool you have to convert income into wealth. This starter kit walks you through the first steps every investor should take — completing KYC, opening a folio, and setting up your first SIP." },
       { heading: "Understanding Mutual Funds", body: "A mutual fund is a professionally managed investment pool. Your money is combined with other investors' money and invested in a diversified portfolio of stocks, bonds or a mix. This provides diversification, professional management and liquidity — all at a low cost." },
       { heading: "Risk Profiling", body: "Before investing, understand your risk tolerance. A conservative investor may prefer debt-heavy portfolios, while an aggressive investor can allocate more to equity. RSI provides a structured risk profiling questionnaire during onboarding." },
       { heading: "Choosing Your First Fund", body: "For most first-time investors, a flexi-cap or large-cap equity fund via SIP is an ideal starting point. Start with Rs. 1,000 to Rs. 5,000 per month, and increase annually as your income grows." },
@@ -539,8 +539,10 @@ export const FAQS = [
 export const TESTIMONIALS = [
   { name: "Rakesh M.", role: "Business Owner, Surat", quote: "Dharmit helped me move from scattered investments to a clear, goal-linked plan. Five years in, my portfolio finally feels intentional." },
   { name: "Priya & Karan S.", role: "Young Family, Pal", quote: "We started SIPs with RSI for our daughter's education. The reviews and honesty make all the difference." },
-  { name: "Ankit V.", role: "IT Professional", quote: "What I value most is the transparency. No pressure, no jargon — just clear advice that respects my long-term horizon." },
-  { name: "Meera D.", role: "Doctor", quote: "Insurance, tax planning, retirement — handled in one place with a calm, structured approach. Highly recommend." },
+  { name: "Ankit V.", role: "IT Professional, Mumbai", quote: "What I value most is the transparency. No pressure, no jargon — just clear advice that respects my long-term horizon." },
+  { name: "Meera D.", role: "Doctor, Surat", quote: "Insurance, tax planning, retirement — handled in one place with a calm, structured approach. Highly recommend." },
+  { name: "Vikram P.", role: "NRI, USA", quote: "Finding trustworthy guidance from abroad was challenging. RSI understands NRI tax implications and made managing my India investments seamless." },
+  { name: "Ravi & Anjali K.", role: "NRI Family, UK", quote: "Planning children's education in India while managing UK taxes seemed complex. RSI's structured approach made it simple and efficient." },
 ];
 
 export const JOURNEY = [
@@ -559,13 +561,13 @@ export const TEAM = [
     role: "Founder & Principal Advisor",
     image: "/dharmit.jpg",
     bio: "**Dharmitsinh Solanki** founded Rudrans Systematic Investment with a single conviction—that every individual and family deserves honest, personalized financial guidance. As an AMFI-registered Mutual Fund Distributor, he helps clients across India, as well as NRIs and international clients, build long-term wealth through goal-based financial planning, disciplined SIP investments, mutual funds, comprehensive insurance solutions, and Specialised Investment Funds (SIF). His approach is rooted in transparency, ethical advice, and long-term relationships. He holds an ARN certification and offers guidance on Specialised Investment Funds (SIF) as part of a diversified investment strategy.",
-    credentials: ["ARN Certified MFD", "SIF Specialist", "Financial Planning Expert"],
+    credentials: ["ARN Certified MFD", "SIF Distributor", "Financial Planning Architect"],
   },
   {
     name: "Suresh Sharma",
     role: "Senior Insurance & Protection Advisor",
     image: "/SureshSharma.jpeg",
     bio: "Suresh Sharma brings a client-first approach to risk management, life insurance and health protection planning at RSI. He specialises in needs-based insurance planning, helping clients choose the right coverage without unnecessary costs. His philosophy is simple: insurance should protect everything you've worked hard to build. He advises clients on term insurance, health covers, critical illness plans and group protection solutions across leading insurance companies.",
-    credentials: ["Insurance Advisor", "Health & Life Specialist"],
+    credentials: ["Insurance Advisor", "Health & Life Architect"],
   },
 ];

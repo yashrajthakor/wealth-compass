@@ -45,7 +45,7 @@ function WhoWeAre() {
               A wealth partner, not just a <em className="italic text-brand-gold">distributor.</em>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-white/70 leading-relaxed">
-              Rudrans Systematic Investment was founded with a simple conviction: most Indian families don't need more products, they need clearer plans. We exist to deliver that clarity.
+              Rudrans Systematic Investment was founded with a simple conviction: most families don't need more products, they need clearer plans. We exist to deliver that clarity.
             </p>
           </motion.div>
         </div>

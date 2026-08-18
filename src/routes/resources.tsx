@@ -37,7 +37,7 @@ function Resources() {
 
       <Calculators />
       <Articles onOpen={setArticle} />
-      <Downloads onOpen={setDoc} />
+      {/* <Downloads onOpen={setDoc} /> */}
       <FAQ />
 
       <ArticleModal article={article} onClose={() => setArticle(null)} />

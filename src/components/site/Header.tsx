@@ -35,7 +35,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href="https://www.fundzbazar.com/signin"
+            href="https://www.fundzbazar.com/"
             target="_blank"
             rel="noreferrer noopener"
             className="hidden md:inline-flex items-center rounded-full border border-brand px-5 py-2.5 text-sm font-semibold text-brand hover:bg-brand/10 transition-all"

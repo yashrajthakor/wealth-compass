@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Rudrans Systematic Investment (RSI) is a modern wealth-creation partner helping Indian families build financial confidence through SIPs, mutual funds and insurance planning.",
+          "Rudrans Systematic Investment (RSI) is a modern wealth-creation partner helping families build financial confidence through SIPs, mutual funds and insurance planning.",
       },
       { name: "author", content: "Rudrans Systematic Investment" },
       { property: "og:site_name", content: "Rudrans Systematic Investment" },
