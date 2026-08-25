@@ -807,7 +807,7 @@ function Testimonials() {
         <SectionHeading
           eyebrow="Investor Stories"
           title="Trust, built one relationship at a time."
-          subtitle="Real words from families and professionals partnering with RSI across Surat and Gujarat."
+          subtitle="Real words from families and professionals partnering with RSI."
         />
       </div>
       <div className="mt-16 relative">

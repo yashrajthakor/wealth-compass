@@ -87,8 +87,8 @@ export const SERVICES = [
     ],
   },
   {
-    slug: "mutual-fund-sip-distribution",
-    title: "Mutual Fund & SIP Distribution",
+    slug: "mutual-fund-sif-distribution",
+    title: "Mutual Fund & SIF Distribution",
     tagline: "Professionally managed, diversified portfolios built for your risk appetite.",
     desc: "Curated solutions across equity, debt and hybrid asset classes for any risk appetite.",
     image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&q=80",
@@ -537,13 +537,22 @@ export const FAQS = [
 ];
 
 export const TESTIMONIALS = [
-  { name: "Rakesh M.", role: "Business Owner, Surat", quote: "Dharmit helped me move from scattered investments to a clear, goal-linked plan. Five years in, my portfolio finally feels intentional." },
-  { name: "Priya & Karan S.", role: "Young Family, Pal", quote: "We started SIPs with RSI for our daughter's education. The reviews and honesty make all the difference." },
-  { name: "Ankit V.", role: "IT Professional, Mumbai", quote: "What I value most is the transparency. No pressure, no jargon — just clear advice that respects my long-term horizon." },
-  { name: "Meera D.", role: "Doctor, Surat", quote: "Insurance, tax planning, retirement — handled in one place with a calm, structured approach. Highly recommend." },
-  { name: "Vikram P.", role: "NRI, USA", quote: "Finding trustworthy guidance from abroad was challenging. RSI understands NRI tax implications and made managing my India investments seamless." },
-  { name: "Ravi & Anjali K.", role: "NRI Family, UK", quote: "Planning children's education in India while managing UK taxes seemed complex. RSI's structured approach made it simple and efficient." },
-];
+  { name: "Mickey Patel", role: "", quote: "Excellent guidance and very professional approach. Portfolio allocation is well planned according to risk profile and financial goals. Regular updates and transparent communication make investing stress-free. Highly recommended for long-term wealth creation." },
+  { name: "Ashish Morker", role: "", quote: "I am extremely satisfied with the services provided by RUDRANS INVESTMENT. They consistently offer timely updates and reminders, regularly monitor my portfolio, and provide valuable suggestions. Their fund recommendations are well-researched, with proper allocation tailored to my financial goals.I truly appreciate their dedication and professionalism — RUDRANS INVESTMENT delivers not just good, but the best services." },
+  { name: "Suresh Sharma", role: "", quote: "Very good financial advise given by Rudrans Investment.I am investing basis advise given by him and inspite of recent market down my portfolio is positive. Whereas my second portfolio with other agency is Negative.Highly recommend to start investment journey with Rudrans Investment..." },
+  { name: "Monica Patel", role: "", quote: "Perfect guidance , service, and support too. Best part is keep me reminders and updates regarding investments and portfolio." },
+  { name: "Rakesh Patel", role: "", quote: "Fantastic service provider and always give fruitful suggestions to balance our portfolio. Also very interactive and ready to assist at any time as far financial help is concerned. Very much satisfied with the services.." },
+  { name: "Nalin Shah", role: "", quote: "Very useful suggestion. I am very satisfy with his service. Always show write direction about financial goal.Keep doing good work." },
+  { name: "Sanjeev Magoo", role: "", quote: "You're a great team player with excellent knowledge and a kind heart.Best wishes." },
+   { name: "Vishal Saini", role: "", quote: "Super- great work, suggestion and support. Keep it up" },
+    { name: "Mihir Patel", role: "", quote: "Very good experience. Fair suggestion for future investment. Transperant and open discussion." },
+    { name: "Bandhan Desai", role: "", quote: "After service r awesome. Thank u for carving my financial path." },
+   { name: "Nikunj Dharsandiya", role: "", quote: "Excellent analysis for Mutual fund schemes and proper guidance." },
+   { name: "Bhumika Gohil", role: "", quote: "Excellent experience and satisfying guidance and service provide by RUDRANS INVESTMENT" },
+   { name: "Dilipsinh Mahida", role: "", quote: "Excellent service" },
+   { name: "Jayveersinh Solanki", role: "", quote: "Excellent service, 5 rated. recommended" },
+   
+  ];
 
 export const JOURNEY = [
   { step: "Dream", desc: "Define the life milestones you want your wealth to fund." },
